@@ -9,9 +9,6 @@ CS561 Software Engineering Group Project
 <br/>
 
 # Sprint 1 Story Assignments (Due 10/26/2020)
-Aiden Nelson
-Denue Grant
-Ching-Fang Wu
 
 ## Unassigned 
 
@@ -43,7 +40,7 @@ Ching-Fang Wu
 ##### :closed_book: [As a developer, I want to display an image in the GUI, so that I can show generated data visualizations to the user.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/21)
 
 
-## Ching-Fang Wu
+## Daniel De Leon
 
 ##### :closed_book: [As a user, I want to see a bar graph of my top 10 most written words on facebook so that I can gain insight on what facebook knows about me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/14)
 
