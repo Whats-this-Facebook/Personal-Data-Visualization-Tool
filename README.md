@@ -13,7 +13,6 @@ CS561 Software Engineering Group Project
 ## Unassigned 
 
 ##### :closed_book: [As a developer, I want fake user JSON files so that I can test the tool.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/6)
-##### :closed_book: [As a developer, I want fake user JSON files so that I can test the tool.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/6)
 
 ## Denue Grant
 
