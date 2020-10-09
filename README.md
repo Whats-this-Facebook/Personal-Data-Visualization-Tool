@@ -11,22 +11,21 @@ CS561 Software Engineering Group Project
 # Sprint 1 Story Assignments (Due 10/26/2020)
 Aiden Nelson
 Denue Grant
-Daniel De Leon
-Christine Breckenridge
 Ching-Fang Wu
 
 ## Unassigned 
 
 ##### :closed_book: [As a developer, I want fake user JSON files so that I can test the tool.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/6)
+##### :closed_book: [As a developer, I want fake user JSON files so that I can test the tool.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/6)
 
-## [Assignee]
+## Denue Grant
 
 ##### :closed_book: [As a developer, I want to select and set up a testing framework for the project.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/22)
 
 ##### :closed_book: [As a developer, I would like 10 facebook privacy related questions that I could develop visualizations to answer.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/24)
 
 
-## [Assignee]
+## Ching-Fang Wu
 
 ##### :closed_book: [As a user and dev, I want a CLI so that I may interact with the application.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/12)
 
@@ -35,7 +34,7 @@ Ching-Fang Wu
 ##### :closed_book: [As a developer, I want the JSON data inside of an object so that I can manipulate and access it easily.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/5)
 
 
-## [Assignee]
+## Christine Breckenridge
 
 ##### :closed_book: [As a developer, I want to select and set up a GUI framework for the project](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/23)
 
@@ -44,7 +43,7 @@ Ching-Fang Wu
 ##### :closed_book: [As a developer, I want to display an image in the GUI, so that I can show generated data visualizations to the user.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/21)
 
 
-## [Assignee]
+## Ching-Fang Wu
 
 ##### :closed_book: [As a user, I want to see a bar graph of my top 10 most written words on facebook so that I can gain insight on what facebook knows about me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/14)
 
