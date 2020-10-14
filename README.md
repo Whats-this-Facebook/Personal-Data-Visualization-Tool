@@ -14,6 +14,13 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a developer, I want fake user JSON files so that I can test the tool.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/6)
 
+## Aiden Nelson
+
+##### :closed_book: [As a Product Owner, I need to schedule, plan, and create format for the sprint review and retrospective.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/27)
+
+##### :closed_book: [As a Product Owner, I need to gather evidence of, and feedback from, a system user.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/28)
+
+
 ## Denue Grant
 
 ##### :closed_book: [As a developer, I want to select and set up a testing framework for the project.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/22)
