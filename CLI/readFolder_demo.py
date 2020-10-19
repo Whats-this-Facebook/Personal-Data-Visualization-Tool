@@ -5,6 +5,7 @@ def Main():
         path = input('Enter your folder path:')
         myFB = Facebook(path)
         all_Comments = myFB.comments()
+        print(all_Comments)
         print(comments_str(all_Comments))
 
 def comments_str(comments):
@@ -18,10 +19,11 @@ def comments_str(comments):
     """
     comments_str = ""
     for aComments in comments:
-        datas = aComments["data"]
-        for data in datas:
-            str = data["comment"]["comment"]
-            comments_str = comments_str + " " + str
+        if "data" in aComments: # Ensure comment has data attached
+            datas = aComments["data"]
+            for data in datas:
+                str = data["comment"]["comment"]
+                comments_str = comments_str + " " + str
     return comments_str
 
 class Facebook:
@@ -35,7 +37,7 @@ class Facebook:
     """
     def __init__(self, folder):
         self.folder = folder
-    
+
     def comments(self):
         path = str(self.folder + "/comments/comments.json")
         try:
@@ -43,8 +45,8 @@ class Facebook:
               d = json.load(f)
               return d["comments"]
         except:
-            print("read comments' json fail") 
-    
+            print("read comments' json fail")
+
     def apps(self):
         path = str(self.folder + "/apps_and_websites/apps_and_websites.json")
         try:
@@ -52,7 +54,7 @@ class Facebook:
               d = json.load(f)
               return d["installed_apps"]
         except:
-            print("read apps' json fail") 
+            print("read apps' json fail")
 
 
 if __name__ == "__main__":
