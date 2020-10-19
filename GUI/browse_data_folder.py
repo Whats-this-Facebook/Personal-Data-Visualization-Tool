@@ -9,6 +9,8 @@ import os
 
 def main():
 
+    sg.set_options(background_color='#3b5998')
+
     # Get the folder containing the images from the user
     folder = sg.popup_get_folder('Data folder to open')
     if folder is None:
@@ -20,11 +22,12 @@ def main():
 
     # define menu layout
     menu = [['File', ['Open Folder', 'Exit']], ['Help', ['About', ]]]
+    buttons = [[sg.Button('Vis1'),sg.Button('Vis2')]]
 
     # define layout, show and read the window
     col = [[sg.Text("Visualization buttons here", size=(80, 3), key='filename')]]
 
-    layout = [[sg.Menu(menu)], [sg.Col(col)]]
+    layout = [[sg.Menu(menu)], [sg.Col(buttons)]]
     window = sg.Window('Visualization Browser', layout,
             return_keyboard_events=True,
             location=(0, 0),
