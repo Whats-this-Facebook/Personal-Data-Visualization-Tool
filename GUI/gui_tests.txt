@@ -1,0 +1,15 @@
+Tests for the GUI
+
+file: browse_data_folder.py
+
+test 1:
+Does the 'Browse' button let you select a folder?
+
+test 2:
+Does the 'OK' button switch to a new view after selecting a folder?
+
+test 3:
+Do the visualization buttons show a visualization when pressed?
+
+test 4:
+Does the 'x' close the window?
