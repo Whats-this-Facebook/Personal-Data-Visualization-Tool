@@ -2,11 +2,31 @@ import argparse
 import json
 
 def Main():
-        path = input('Enter your folder path:')
-        myFB = Facebook(path)
-        all_Comments = myFB.comments()
-        print(all_Comments)
-        print(comments_str(all_Comments))
+  parser = argparse.ArgumentParser()
+  parser.add_argument("filepath", help = "path to folder downloaded from facebook")
+  args = parser.parse_args()
+
+  myFB = Facebook(args.filepath)
+  choose = input('Please choose a visualization:\n1. What are my top 10 most used words? \n2. Who have I pokde most? \n3.Who are the friends I interact with the most? \n4. What facebook knows about my off-facebook activity? \n5. What facebook knows about my installed aoos?\nYour choice: ')
+  
+  try:
+    user_choose = int(choose)
+  except ValueError:
+    print("Invalid input")
+
+  if user_choose == 1:
+    all_Comments = myFB.comments()
+  elif user_choose == 2:
+    print('poked most')
+  elif user_choose == 3:
+    print('friends')
+  elif user_choose == 4:
+    print('off-facebook')
+  elif user_choose == 5:
+    print('installed apps')
+  else:
+    print('Invalid option.')
+
 
 def comments_str(comments):
     """Pick the content from comments dictionary and combine all of them into one string.
