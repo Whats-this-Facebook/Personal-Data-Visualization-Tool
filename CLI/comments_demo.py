@@ -34,6 +34,9 @@ def readJSON(path):
 
 def getAllComments(path):
     try:
+        if '/comments/comments.json' not in path:
+            path = path + '/comments/comments.json'
+
         comments_str = ''
         with open(path) as f:
             d = json.load(f)
@@ -43,7 +46,7 @@ def getAllComments(path):
                 for data in datas:
                     str = data["comment"]["comment"]
                     comments_str = comments_str + " " + str
-        return comments_str
+        return comments_str            
 
     except:
             print('read comments fail: some data without comment....')
