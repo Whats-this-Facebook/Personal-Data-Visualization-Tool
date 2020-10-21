@@ -2,6 +2,7 @@
 # from data set 
 from collections import Counter 
 import matplotlib.pyplot as plt
+import string
 
 def mostFreq(data_set,n):
     """Parses the data_set to find the top n most frequent words
@@ -13,11 +14,13 @@ def mostFreq(data_set,n):
     Returns:
         list: list of tuples of the from (word,frequency) ordered in descending frequency
     """
-
+    # remove punctuation
+    data_set = data_set.translate(str.maketrans('', '', string.punctuation))
+    
     split_it = data_set.split() 
     if not split_it:
         return None
-  
+    
     # Pass the split_it list to instance of Counter class. 
     cntr = Counter(split_it) 
   
@@ -40,16 +43,18 @@ def mostFreqBarchart(freq_words,bar_chart_name):
     x_pos = [i for i, _ in enumerate(words)]
 
     # 3b5998 is the official color of facebook blue
-    plt.bar(x_pos, freqs, color='#3b5998')
+    fig = plt.bar(x_pos, freqs, color='#3b5998')
     plt.xlabel("Words")
     plt.ylabel("Frequency")
     plt.title(f"Top {len(words)} words that you have used on Facebook")
     
     plt.xticks(x_pos, words)
-    
-    plt.savefig(bar_chart_name + '.png')
+    if bar_chart_name == '':
+        return fig
+    else:
+        plt.savefig(bar_chart_name + '.png')
 
-def freqWords2Barchart(data_set,chart_fname):
+def freqWords2Barchart(data_set,chart_fname=''):
     """Finds the top 10 most frequent words in data_set and generates a barchart at 
     <chart_fname>.png 
 
