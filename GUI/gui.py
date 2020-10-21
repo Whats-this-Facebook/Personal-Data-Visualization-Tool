@@ -11,9 +11,9 @@ def set_colors():
 def get_folder():
     # Get the folder containing the images from the user
     folder = sg.popup_get_folder('Data folder to open')
-    if folder is None:
-        sg.popup_cancel('Cancelling')
-        return
+    while folder is None or folder == '':
+        folder = sg.popup_get_folder('Please select a folder to open')
+    return folder
 
 def set_window():
     # define menu layout

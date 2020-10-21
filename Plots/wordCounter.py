@@ -15,6 +15,8 @@ def mostFreq(data_set,n):
         list: list of tuples of the from (word,frequency) ordered in descending frequency
     """
     # remove punctuation
+    if data_set is None:
+        return None
     data_set = data_set.translate(str.maketrans('', '', string.punctuation))
     
     split_it = data_set.split() 
@@ -36,7 +38,9 @@ def mostFreqBarchart(freq_words,bar_chart_name):
         freq_words (list): list of tuples (word, freq) of the most frequent words
         bar_chart_name (string): the name of the barchart file to be saved (can include filepath)
     """
-
+    if freq_words is None:
+        return 0
+    
     words = [i[0] for i in freq_words]
     freqs = [i[1] for i in freq_words]
     
