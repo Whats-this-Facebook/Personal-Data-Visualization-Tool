@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import PySimpleGUI as sg
 import os
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
 
 '''
     GUI window to select data folder
@@ -26,6 +28,27 @@ def set_window():
             return_keyboard_events=True,
             location=(0, 0),
             use_default_focus=False)
+    return window
+
+def draw_figure(canvas, figure):
+    if figure is None:
+        return
+    figure_canvas_agg = FigureCanvasTkAgg(figure, canvas)
+    figure_canvas_agg.draw()
+    figure_canvas_agg.get_tk_widget().pack(side='top', fill='both', expand=1)
+    return figure_canvas_agg
+
+def show_vis(figure,title=''):
+    # define the form layout
+    layout = [[sg.Text(title, size=(40, 1), justification='center', font='Helvetica 20')],
+              [sg.Canvas(size=(640, 480), key='-CANVAS-')],
+              [sg.Button('Exit', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+
+    # create the form and show it with the plot
+    window = sg.Window(title, layout, finalize=True)
+    canvas_elem = window['-CANVAS-']
+    canvas = canvas_elem.TKCanvas
+    draw_figure(canvas,figure)
 
 def main():
 

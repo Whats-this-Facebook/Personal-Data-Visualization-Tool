@@ -40,14 +40,15 @@ def mostFreqBarchart(freq_words,bar_chart_name):
     """
     if freq_words is None:
         return 0
-    
+
     words = [i[0] for i in freq_words]
     freqs = [i[1] for i in freq_words]
     
     x_pos = [i for i, _ in enumerate(words)]
 
     # 3b5998 is the official color of facebook blue
-    fig = plt.bar(x_pos, freqs, color='#3b5998')
+    fig, ax = plt.subplots()
+    plt.bar(x_pos, freqs, color='#3b5998')
     plt.xlabel("Words")
     plt.ylabel("Frequency")
     plt.title(f"Top {len(words)} words that you have used on Facebook")
@@ -68,7 +69,7 @@ def freqWords2Barchart(data_set,chart_fname=''):
     """
 
     n = 10 # the top most frequent words to be displayed on barchart
-    mostFreqBarchart(mostFreq(data_set,n),chart_fname)
+    return mostFreqBarchart(mostFreq(data_set,n),chart_fname)
 
 def main():
     data_set = "Welcome to the world of Geeks This portal has been created to provide well written well thought and well explained solutions for selected questions If you like Geeks for Geeks and would like to contribute here is your chance You can write article and mail your article to contribute at geeksforgeeks org See your article appearing on the Geeks for Geeks main page and help thousands of other Geeks. "
