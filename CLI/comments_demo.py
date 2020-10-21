@@ -42,10 +42,11 @@ def getAllComments(path):
             d = json.load(f)
             allComments = d["comments"]
             for aComments in allComments:
-                datas = aComments["data"]
-                for data in datas:
-                    str = data["comment"]["comment"]
-                    comments_str = comments_str + " " + str
+                if "data" in aComments: # Ensure comment has data attached
+                    datas = aComments["data"]
+                    for data in datas:
+                        str = data["comment"]["comment"]
+                        comments_str = comments_str + " " + str
         return comments_str            
 
     except:
