@@ -31,7 +31,9 @@ def main():
                 if vis_event == sg.WIN_CLOSED:
                     break
                 elif vis_event == 'Back':
-                    window.refresh()
+                    window = gui.set_window()
+                    vis_window.close()
+                    break
 
 
 if __name__ == "__main__":
