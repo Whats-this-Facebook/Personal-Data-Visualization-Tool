@@ -17,7 +17,7 @@ def get_folder():
         folder = sg.popup_get_folder('Please select a folder to open')
     return folder
 
-def set_window():
+def set_window(title=''):
     # define menu layout
     menu = [['File', ['Open Folder', 'Exit']], ['Help', ['About', ]]]
     buttons = [[sg.Button('Vis1',key='vis1',size=(20, 3)),sg.Button('Vis2',key='vis2',size=(20, 3))]]
@@ -31,24 +31,27 @@ def set_window():
     return window
 
 def draw_figure(canvas, figure):
-    if figure is None:
+    if figure is None or canvas is None:
         return
     figure_canvas_agg = FigureCanvasTkAgg(figure, canvas)
     figure_canvas_agg.draw()
     figure_canvas_agg.get_tk_widget().pack(side='top', fill='both', expand=1)
     return figure_canvas_agg
 
-def show_vis(figure,title=''):
-    # define the form layout
+def show_vis(figure,window,title=''):
+    if figure is None:
+        return
+    window.close()
     layout = [[sg.Text(title, size=(40, 1), justification='center', font='Helvetica 20')],
               [sg.Canvas(size=(640, 480), key='-CANVAS-')],
-              [sg.Button('Exit', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+              [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+    
+    new_window = sg.Window(title, layout, finalize=True)
 
-    # create the form and show it with the plot
-    window = sg.Window(title, layout, finalize=True)
-    canvas_elem = window['-CANVAS-']
+    canvas_elem = new_window['-CANVAS-']
     canvas = canvas_elem.TKCanvas
     draw_figure(canvas,figure)
+    return new_window, window
 
 def main():
 
