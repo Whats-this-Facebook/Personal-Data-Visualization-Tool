@@ -43,7 +43,7 @@ def show_vis(figure,window,title=''):
         return
     window.close()
     layout = [[sg.Text(title, size=(40, 1), justification='center', font='Helvetica 20')],
-              [sg.Canvas(size=(800, 600), key='-CANVAS-')],
+              [sg.Canvas(size=(640, 480), key='-CANVAS-')],
               [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
     
     new_window = sg.Window(title, layout, finalize=True)
