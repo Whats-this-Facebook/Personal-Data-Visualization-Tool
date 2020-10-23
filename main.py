@@ -18,11 +18,20 @@ def main():
 
     while True:
         event, values = window.read()
+
         if event == sg.WIN_CLOSED:
             break
+
         if event == 'vis1':
             figure = wordCounter.freqWords2Barchart(comments_string)
-            gui.show_vis(figure,"10 most frequent words")
+            vis_window, window = gui.show_vis(figure,window)
+
+            while True:
+                vis_event, vis_values = vis_window.read()
+                if vis_event == sg.WIN_CLOSED:
+                    break
+                elif vis_event == 'Back':
+                    window.refresh()
 
 
 if __name__ == "__main__":
