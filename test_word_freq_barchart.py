@@ -20,3 +20,5 @@ def test_most_freq_word(data_set):
 def test_top_ten(data_set):
     assert mostFreq(data_set,10) == [('geeks', 6), ('well', 3), ('article', 3), ('like', 2), ('contribute', 2), ('welcome', 1), ('world', 1), ('portal', 1), ('created', 1), ('provide', 1)]
 
+def test_less_than_10(data_set):
+    assert mostFreq('welcome to the world of geeks for geeks',10) == [('geeks', 2), ('welcome', 1), ('world', 1)]

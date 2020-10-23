@@ -45,7 +45,8 @@ def mostFreq(data_set,n):
     cntr = Counter(split_it) 
   
     # most_common() produces k frequently encountered 
-    # input values and their respective counts. 
+    # input values and their respective counts.
+    # if len(cntr) < n, most_common will handle it properly
     return cntr.most_common(n) 
 
 def mostFreqBarchart(freq_words,bar_chart_name):
@@ -65,15 +66,13 @@ def mostFreqBarchart(freq_words,bar_chart_name):
     x_pos = [i for i, _ in enumerate(words)]
 
     # 3b5998 is the official color of facebook blue
-    # color='#3b5998'
     c_map = ['#3B5998','#3460A3','#2E67AF','#276EBA','#2175C6','#1A7DD1',
         '#1484DD','#0D8BE8','#0792F4','#0099FF']
-    style.use('seaborn-poster')
 
     fig, ax = plt.subplots()
     barplot = plt.bar(x_pos, freqs)
-    for i,c in enumerate(c_map):
-        barplot[i].set_color(c)
+    for i in range(len(words)):
+        barplot[i].set_color(c_map[len(c_map)- 1 - i])
 
     plt.ylabel("Frequency")
     plt.title(f"Top {len(words)} words that you have used on Facebook")
@@ -81,6 +80,7 @@ def mostFreqBarchart(freq_words,bar_chart_name):
     plt.xticks(x_pos, words,rotation=45, horizontalalignment='right', fontweight='light')
     plt.tight_layout()
 
+    print(fig.get_size_inches()*fig.dpi)
 
     if bar_chart_name == '':
         return fig
@@ -100,10 +100,10 @@ def freqWords2Barchart(data_set,chart_fname=''):
     return mostFreqBarchart(mostFreq(data_set,n),chart_fname)
 
 def main():
-    print(style.available)
     data_set = "Welcome to the world of Geeks This portal has been created to provide well written well thought and well explained solutions for selected questions If you like Geeks for Geeks and would like to contribute here is your chance You can write article and mail your article to contribute at geeksforgeeks org See your article appearing on the Geeks for Geeks main page and help thousands of other Geeks. "
-    print(mostFreq(data_set,10))
-    freqWords2Barchart(data_set,'test')
+    small_data_set = 'welcome to the world of geeks for geeks'
+    print(mostFreq(small_data_set,10))
+    freqWords2Barchart(small_data_set,'test')
 
 if __name__=='__main__':
     main()
