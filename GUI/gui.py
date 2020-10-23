@@ -31,7 +31,7 @@ def set_window():
     return window
 
 def draw_figure(canvas, figure):
-    if figure is None:
+    if figure is None or canvas is None:
         return
     figure_canvas_agg = FigureCanvasTkAgg(figure, canvas)
     figure_canvas_agg.draw()
@@ -39,6 +39,8 @@ def draw_figure(canvas, figure):
     return figure_canvas_agg
 
 def show_vis(figure,title=''):
+    if figure is None:
+        return
     # define the form layout
     layout = [[sg.Text(title, size=(40, 1), justification='center', font='Helvetica 20')],
               [sg.Canvas(size=(640, 480), key='-CANVAS-')],
