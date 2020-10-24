@@ -1,5 +1,3 @@
-# Python program to find the k most frequent words 
-# from data set 
 from collections import Counter 
 import matplotlib.pyplot as plt
 import string
