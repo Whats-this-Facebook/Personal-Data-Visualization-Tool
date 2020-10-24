@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.style as style
 import matplotlib.dates as mdates
 from datetime import datetime
-import readFolder_demo
+import CLI.readFolder_demo as readFolder_demo
 '''
 try:
     # Try to fetch a list of Matplotlib releases and their dates
@@ -91,6 +91,11 @@ def plotTimeline(names, dates, timeline_name=''):
     else:
         plt.savefig(timeline_name + '.png')
     plt.clf()
+
+def plotApps(path):
+    FB = readFolder_demo.Facebook(path)
+    names, dates = getApps(FB)
+    return plotTimeline(names,dates)
 
 def main():
     FB = readFolder_demo.Facebook('./facebook-christinebreckenridge')
