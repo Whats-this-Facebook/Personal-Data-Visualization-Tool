@@ -8,6 +8,13 @@ CS561 Software Engineering Group Project
 #### :hammer: Developers: *Daniel De Leon, Christine Breckenridge, Ching-Fang Wu*
 <br/>
 
+### Dependencies
+#### 📈 matplotlib
+#### 💻 PySimpleGUI
+#### ⌨️ argparse
+#### ✅ pytest
+</br>
+
 # Sprint 1 Story Assignments (Due 10/26/2020)
 
 ## Unassigned 
