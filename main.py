@@ -3,6 +3,7 @@ import GUI.gui as gui
 import Plots.wordCounter as wordCounter
 import Plots.appsUsed as appsUsed
 import CLI.comments_demo as comments
+import CLI.readFolder_demo as readFolder_demo
 import matplotlib.pyplot as plt
 import PySimpleGUI as sg
 
@@ -14,7 +15,9 @@ def main():
 
     window = gui.set_window()
 
-    comments_string = comments.getAllComments(path)
+    data = readFolder_demo.Facebook(path)
+    comments = data.comments()
+    comments_string = readFolder_demo.comments_str(comments)
 
 
     while True:
