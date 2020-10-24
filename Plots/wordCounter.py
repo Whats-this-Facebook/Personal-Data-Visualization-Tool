@@ -78,7 +78,7 @@ def mostFreqBarchart(freq_words,bar_chart_name):
     plt.xticks(x_pos, words,rotation=45, horizontalalignment='right', fontweight='light')
     plt.tight_layout()
 
-    print(fig.get_size_inches()*fig.dpi)
+    # print(fig.get_size_inches()*fig.dpi)
 
     if bar_chart_name == '':
         return fig
