@@ -8,6 +8,13 @@ CS561 Software Engineering Group Project
 #### :hammer: Developers: *Daniel De Leon, Christine Breckenridge, Ching-Fang Wu*
 <br/>
 
+### Dependencies
+#### 📈 matplotlib
+#### 💻 PySimpleGUI
+#### ⌨️ argparse
+#### ✅ pytest
+</br>
+
 # Sprint 1 Story Assignments (Due 10/26/2020)
 
 ## Unassigned 
@@ -67,6 +74,16 @@ CS561 Software Engineering Group Project
 ##### :closed_book: [As a user, I want an installer so that I have an easy way to install the app.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/7)
 
 ##### :closed_book: [As a developer, I want to display an SVG image OR interactive visualization in the GUI, so that the user is more engaged.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/25)
+
+##### :closed_book: [As a user, I want a single window interface (except for the file browser), so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+
+##### :closed_book: [As a user, I want a interface that stays a consistent size throughout it's screens, so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+
+##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+
+##### :closed_book: [As a user, I want a info button and screen so that I can get more information about the app and what it is doing.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+
+##### :closed_book: [As a user, I want a back button so that I can navigate back to previous screens.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
 
 # Sprint 3 Stories (Due 12/7/2020)
