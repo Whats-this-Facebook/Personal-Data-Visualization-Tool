@@ -4,6 +4,7 @@ import matplotlib.style as style
 import matplotlib.dates as mdates
 from datetime import datetime
 import CLI.readFolder_demo as readFolder_demo
+from matplotlib.colors import LinearSegmentedColormap
 '''
 try:
     # Try to fetch a list of Matplotlib releases and their dates
@@ -61,7 +62,7 @@ def plotTimeline(names, dates, timeline_name=''):
     ax.set(title="Apps that facebook knows you've used")
     
     markerline, stemline, baseline = ax.stem(dates, levels,
-                                             linefmt="C3-", basefmt="k-",
+                                             linefmt="C0-", basefmt="k-",
                                              use_line_collection=True)
     
     plt.setp(markerline, mec="k", mfc="w", zorder=3,color='#3B5998')
