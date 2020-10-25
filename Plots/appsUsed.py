@@ -62,7 +62,7 @@ def plotTimeline(names, dates, timeline_name=''):
     ax.set(title="Apps that facebook knows you've used")
     
     markerline, stemline, baseline = ax.stem(dates, levels,
-                                             linefmt="C0-", basefmt="k-",
+                                             linefmt="#3B5998", basefmt="k-",
                                              use_line_collection=True)
     
     plt.setp(markerline, mec="k", mfc="w", zorder=3,color='#3B5998')
