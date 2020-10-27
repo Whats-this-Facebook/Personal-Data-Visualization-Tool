@@ -59,11 +59,13 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a dev, I want to show the user what facebook knows about their installed apps, so that the user can gain further insights on how facebook is tracking them.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/16)
 
-##### :closed_book: [As a developer, I want to show the user what facebook knows about their off-facebook activity, so that the user can gain further insights on how facebook is tracking them.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/17)
+
 
 
 
 # Sprint 2 Stories (Due 11/16/2020)
+
+##### :closed_book: [As a developer, I want to show the user what facebook knows about their off-facebook activity, so that the user can gain further insights on how facebook is tracking them.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/17)
 
 ##### :closed_book: [As someone interested in learning more about the tool, I want a simple website where public documentation on the tool is viewable.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/15)
 
