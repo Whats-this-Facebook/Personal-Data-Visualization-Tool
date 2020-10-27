@@ -57,31 +57,36 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a user, I want to see a bar graph of my top 10 most written words on facebook so that I can gain insight on what facebook knows about me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/14)
 
-##### :closed_book: [As a dev, I want to show the user what facebook knows about their installed apps, so that the user can gain further insights on how facebook is tracking them.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/16)
-
-
-
 
 
 # Sprint 2 Stories (Due 11/16/2020)
 
+## Denue Grant
+
 ##### :closed_book: [As a developer, I want to show the user what facebook knows about their off-facebook activity, so that the user can gain further insights on how facebook is tracking them.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/17)
 
+## Aiden Nelson
+
 ##### :closed_book: [As someone interested in learning more about the tool, I want a simple website where public documentation on the tool is viewable.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/15)
+
+##### :closed_book: [As a user, I want an installer so that I have an easy way to install the app.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/7)
+
+## Christine Breckenridge
 
 ##### :closed_book: [As a user, I want a menu of questions I can choose from that will show me visualizations when selected.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/20)
 
 ##### :closed_book: [As a user, I want a visualization of how much data (in bytes) facebook has on me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/19)
 
-##### :closed_book: [As a user, I want an installer so that I have an easy way to install the app.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/7)
+##### :closed_book: [As a user, I want a interface that stays a consistent size throughout it's screens, so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+
+## Daniel De Leon
 
 ##### :closed_book: [As a developer, I want to display an SVG image OR interactive visualization in the GUI, so that the user is more engaged.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/25)
 
-##### :closed_book: [As a user, I want a single window interface (except for the file browser), so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+##### :closed_book: [As a dev, I want to show the user what facebook knows about their installed apps, so that the user can gain further insights on how facebook is tracking them.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/16)
 
-##### :closed_book: [As a user, I want a interface that stays a consistent size throughout it's screens, so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
-##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+## Ching-Fang Wu
 
 ##### :closed_book: [As a user, I want a info button and screen so that I can get more information about the app and what it is doing.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
@@ -89,6 +94,8 @@ CS561 Software Engineering Group Project
 
 
 # Sprint 3 Stories (Due 12/7/2020)
+
+##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
 ##### :closed_book: [As a user, I want to be able to see which specific JSON files were used to create the visualization I am looking at, so that I may go inspect the raw data myself.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/18)
 
