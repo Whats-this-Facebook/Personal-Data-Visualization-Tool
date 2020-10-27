@@ -30,6 +30,7 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a Product Owner, I need to gather evidence of, and feedback from, a system user.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/28)
 
+##### :closed_book: [As a user, I want a visualization of how much data (in bytes) facebook has on me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/19)
 
 ### Denue Grant
 
@@ -76,6 +77,8 @@ CS561 Software Engineering Group Project
 
 ### Aiden Nelson
 
+##### :closed_book: [As a user, I want to know where I was when I used FB to see how FB tracks my location](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/30)
+
 ##### :closed_book: [As someone interested in learning more about the tool, I want a simple website where public documentation on the tool is viewable.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/15)
 
 ##### :closed_book: [As a user, I want an installer so that I have an easy way to install the app.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/7)
@@ -84,9 +87,9 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a user, I want a menu of questions I can choose from that will show me visualizations when selected.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/20)
 
-##### :closed_book: [As a user, I want a visualization of how much data (in bytes) facebook has on me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/19)
-
 ##### :closed_book: [As a user, I want a interface that stays a consistent size throughout it's screens, so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/31)
+
+##### :closed_book: [As a user, I want to see my FB over time to understand how much I've used FB](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/29)
 
 ### Daniel De Leon
 
