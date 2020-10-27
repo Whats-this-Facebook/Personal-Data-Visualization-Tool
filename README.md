@@ -77,7 +77,7 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a user, I want a visualization of how much data (in bytes) facebook has on me.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/19)
 
-##### :closed_book: [As a user, I want a interface that stays a consistent size throughout it's screens, so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+##### :closed_book: [As a user, I want a interface that stays a consistent size throughout it's screens, so that the app is simpler to use.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/31)
 
 ## Daniel De Leon
 
@@ -88,9 +88,9 @@ CS561 Software Engineering Group Project
 
 ## Ching-Fang Wu
 
-##### :closed_book: [As a user, I want a info button and screen so that I can get more information about the app and what it is doing.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+##### :closed_book: [As a user, I want a info button and screen so that I can get more information about the app and what it is doing.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/32)
 
-##### :closed_book: [As a user, I want a back button so that I can navigate back to previous screens.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+##### :closed_book: [As a user, I want a back button so that I can navigate back to previous screens.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/33)
 
 
 # Sprint 3 Stories (Due 12/7/2020)
