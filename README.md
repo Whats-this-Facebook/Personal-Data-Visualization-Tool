@@ -1,6 +1,13 @@
 # Personal-Data-Visualization-Tool
 CS561 Software Engineering Group Project
 
+## Dependencies
+#### 📈 matplotlib
+#### 💻 PySimpleGUI
+#### ⌨️ argparse
+#### ✅ pytest
+</br>
+
 # Sprint 1
 
 ### Team Members and Roles (Sprint 1)
@@ -9,12 +16,7 @@ CS561 Software Engineering Group Project
 #### :hammer: Developers: *Daniel De Leon, Christine Breckenridge, Ching-Fang Wu*
 <br/>
 
-### Dependencies
-#### 📈 matplotlib
-#### 💻 PySimpleGUI
-#### ⌨️ argparse
-#### ✅ pytest
-</br>
+
 
 ## Sprint 1 Story Assignments (Due 10/26/2020)
 
