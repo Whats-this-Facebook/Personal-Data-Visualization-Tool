@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 
 def Main():
   parser = argparse.ArgumentParser()
@@ -86,6 +87,21 @@ class Facebook:
         except:
             print("read comments' json fail")
             return []
+
+    def messages(self):
+        path = str(self.folder + "/messages/inbox/")
+        messages = []
+        try:
+            folders = os.scandir(path)
+            for f in folders:
+              if os.path.isdir(os.path.join(path, f)):
+                folder = os.scandir(os.path.join(path, f))
+                for file in folder:
+                  if os.path.isfile(os.path.join(path, file)):
+                    messages.append(json.load(open(os.path.join(path, file))))
+        except:
+            print("read messages json fail")
+        return messages
 
     def apps(self):
         path = str(self.folder + "/apps_and_websites/apps_and_websites.json")
