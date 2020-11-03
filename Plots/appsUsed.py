@@ -5,52 +5,46 @@ import matplotlib.dates as mdates
 from datetime import datetime
 import CLI.readFolder_demo as readFolder_demo
 from matplotlib.colors import LinearSegmentedColormap
-'''
-try:
-    # Try to fetch a list of Matplotlib releases and their dates
-    # from https://api.github.com/repos/matplotlib/matplotlib/releases
-    import urllib.request
-    import json
 
-    url = 'https://api.github.com/repos/matplotlib/matplotlib/releases'
-    url += '?per_page=100'
-    data = json.loads(urllib.request.urlopen(url, timeout=.4).read().decode())
 
-    dates = []
-    names = []
-    for item in data:
-        if 'rc' not in item['tag_name'] and 'b' not in item['tag_name']:
-            dates.append(item['published_at'].split("T")[0])
-            names.append(item['tag_name'])
-    # Convert date strings (e.g. 2014-10-18) to datetime
-    dates = [datetime.strptime(d, "%Y-%m-%d") for d in dates]
+def findRepeatDates(dates,names):
+    newDates, newNames = [], []
+    for i,date in enumerate(dates):
+        if(i != 0 and dates[i-1] == date):
+            newNames[-1] = newNames[-1] + ' | ' + names[i]
+        else:
+            newNames.append(names[i])
+            newDates.append(date)
+    return newNames, newDates
 
-except Exception:
-    # In case the above fails, e.g. because of missing internet connection
-    # use the following lists as fallback.
-    names = ['v2.2.4', 'v3.0.3', 'v3.0.2', 'v3.0.1', 'v3.0.0', 'v2.2.3',
-             'v2.2.2', 'v2.2.1', 'v2.2.0', 'v2.1.2', 'v2.1.1', 'v2.1.0',
-             'v2.0.2', 'v2.0.1', 'v2.0.0', 'v1.5.3', 'v1.5.2', 'v1.5.1',
-             'v1.5.0', 'v1.4.3', 'v1.4.2', 'v1.4.1', 'v1.4.0']
 
-    dates = ['2019-02-26', '2019-02-26', '2018-11-10', '2018-11-10',
-             '2018-09-18', '2018-08-10', '2018-03-17', '2018-03-16',
-             '2018-03-06', '2018-01-18', '2017-12-10', '2017-10-07',
-             '2017-05-10', '2017-05-02', '2017-01-17', '2016-09-09',
-             '2016-07-03', '2016-01-10', '2015-10-29', '2015-02-16',
-             '2014-10-26', '2014-10-18', '2014-08-26']
 
-    # Convert date strings (e.g. 2014-10-18) to datetime
-    dates = [datetime.strptime(d, "%Y-%m-%d") for d in dates]
-'''
 def getApps(FB):
     apps = FB.apps()
     names = [i['name'] for i in apps]
     dates = [datetime.fromtimestamp(i['added_timestamp']).isoformat() for i in apps]
     dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
-    return names, dates
+    return findRepeatDates(dates,names)
 
 def plotTimeline(names, dates, timeline_name=''):
+    """Generates timeline of of app names with their respective dates of installation.
+    Names and dates must correspond to eachother via index. If no timeline_name is 
+    specificied then this function returns the fig matplotlib object. Otherwise, it 
+    saves .png file with the provided timeline name
+
+    Args:
+        names (list()): list of strings containing the names of all the apps
+        dates ([type]): list of datetime objects that correspond to the installation
+            of the apps in the names apps 
+        timeline_name (str, optional): the name of the .png if you want
+            to save it. Defaults to ''.
+
+    Returns:
+        if no timeline_name is passed then
+            fig: the matplot lib fig object of the timeline
+        else
+            None
+    """
 
     #https://matplotlib.org/3.2.1/gallery/lines_bars_and_markers/timeline.html
     # Choose some nice levels
@@ -94,6 +88,15 @@ def plotTimeline(names, dates, timeline_name=''):
     plt.clf()
 
 def plotApps(path):
+    """Plots apps you installed on a timeline. For apps installed on the
+    the same day will show up as "app1 | app2 | app3 ...".
+
+    Args:
+        path (string): path to the facebook folder
+
+    Returns:
+        [fig]: the matplotlib fig object to be used for the GUI
+    """
     FB = readFolder_demo.Facebook(path)
     names, dates = getApps(FB)
     return plotTimeline(names,dates)
