@@ -2,7 +2,7 @@
 from matplotlib.collections import PolyCollection
 import matplotlib.pyplot as plt
 import numpy as np
-import readFolder_demo as readFolder
+import CLI.readFolder as readFolder
 from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -23,7 +23,7 @@ def plot(FB):
 	count = []
 	date = []
 	for el in dates:
-		date.append(el) 
+		date.append(el)
 		count.append(dates.count(el))
 
 	fig, ax = plt.subplots()
@@ -62,7 +62,7 @@ class Toolbar(NavigationToolbar2Tk):
 
 
 if __name__ == "__main__":
-	
+
 
 	# ------------------------------- PySimpleGUI CODE
 
@@ -93,5 +93,5 @@ if __name__ == "__main__":
 		print(event, values)
 		if event in (sg.WIN_CLOSED, 'Exit'):  # always,  always give a way out!
 			break
-			
+
 	window.close()
