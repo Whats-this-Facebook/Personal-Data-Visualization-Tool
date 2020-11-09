@@ -2,7 +2,7 @@
 from matplotlib.collections import PolyCollection
 import matplotlib.pyplot as plt
 import numpy as np
-import readFolder_demo as readFolder
+import readFolder
 from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -30,9 +30,18 @@ def get_message_dates(FB):
 	dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
 	return dates
 
+def get_post_dates(FB):
+	posts = FB.posts()
+	dates = []
+	for p in posts:
+		for post in p:
+			dates.append(datetime.fromtimestamp(post['timestamp']).isoformat()) 
+	dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
+	return dates
+
 def plot(FB):
-	# Create two subplots
-	fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
+	# Create subplots
+	fig, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True)
 
 	dates = get_comment_dates(FB)
 	count = []
@@ -46,6 +55,18 @@ def plot(FB):
 	ax1.yaxis.get_major_locator().set_params(integer=True)
 	ax1.set_ylim(ymin=0, ymax=None)
 
+	dates = get_post_dates(FB)
+	count = []
+	date = []
+	for el in dates:
+		if el not in date:
+			date.append(el) 
+			count.append(dates.count(el))
+
+	ax2.bar(date,count)
+	ax2.yaxis.get_major_locator().set_params(integer=True)
+	ax2.set_ylim(ymin=0, ymax=None)
+
 	dates = get_message_dates(FB)
 	count = []
 	date = []
@@ -53,13 +74,14 @@ def plot(FB):
 		if el not in date:
 			date.append(el) 
 			count.append(dates.count(el))
-	ax2.bar(date,count)
-	ax2.yaxis.get_major_locator().set_params(integer=True)
-	ax2.set_ylim(ymin=0, ymax=None)
-	plt.setp(ax2.get_xticklabels(), rotation=30, ha="right")
+	ax3.bar(date,count)
+	ax3.yaxis.get_major_locator().set_params(integer=True)
+	ax3.set_ylim(ymin=0, ymax=None)
+	plt.setp(ax3.get_xticklabels(), rotation=30, ha="right")
 
 	ax1.set_title('Comments')
-	ax2.set_title('Messages')
+	ax2.set_title('Posts')
+	ax3.set_title('Messages')
 	# plt.show()
 	return fig
 
@@ -101,7 +123,7 @@ if __name__ == "__main__":
 			layout=[
 				[sg.Canvas(key='fig_cv',
 						   # it's important that you set this size
-						   size=(640, 480)
+						   size=(640, 600)
 						   )]
 			],
 			background_color='#DAE0E6',

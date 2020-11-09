@@ -78,6 +78,16 @@ class Facebook:
     def __init__(self, folder):
         self.folder = folder
 
+    def profile(self):
+        path = str(self.folder + "/profile_information/profile_information.json")
+        try:
+            with open(path) as f:
+              d = json.load(f)
+              return d["profile"]
+        except:
+            print("read profile info json fail")
+            return []
+    
     def comments(self):
         path = str(self.folder + "/comments/comments.json")
         try:
@@ -102,6 +112,18 @@ class Facebook:
         except:
             print("read messages json fail")
         return messages
+
+    def posts(self):
+        path = str(self.folder + "/posts/")
+        posts = []
+        try:
+            folders = os.scandir(path)
+            for f in folders:
+              if os.path.isfile(os.path.join(path, f)):
+                    posts.append(json.load(open(os.path.join(path, f))))
+        except:
+            print("read posts json fail")
+        return posts
 
     def apps(self):
         path = str(self.folder + "/apps_and_websites/apps_and_websites.json")
