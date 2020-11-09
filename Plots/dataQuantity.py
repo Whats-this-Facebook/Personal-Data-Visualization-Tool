@@ -1,111 +1,30 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.style as style
-import matplotlib.dates as mdates
-from datetime import datetime
-import CLI.readFolder as readFolder
-from matplotlib.colors import LinearSegmentedColormap
+# import matplotlib.dates as mdates
+# from datetime import datetime
+# import CLI.readFolder as readFolder
+# from matplotlib.colors import LinearSegmentedColormap
 
+def plotDataQuantity():
+    fig, ax = plt.subplots()
 
-def findRepeatDates(dates,names):
-    newDates, newNames = [], []
-    for i,date in enumerate(dates):
-        if(i != 0 and dates[i-1] == date):
-            newNames[-1] = newNames[-1] + ' | ' + names[i]
-        else:
-            newNames.append(names[i])
-            newDates.append(date)
-    return newNames, newDates
+    # Data to plot
+    labels = 'Python', 'C++', 'Ruby', 'Java'
+    sizes = [215, 130, 245, 210]
+    colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
+    explode = (0.1, 0, 0, 0)  # explode 1st slice
 
+    # Plot
+    plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+    autopct='%1.1f%%', shadow=True, startangle=140)
 
-
-def getApps(FB):
-    apps = FB.apps()
-    names = [i['name'] for i in apps]
-    dates = [datetime.fromtimestamp(i['added_timestamp']).isoformat() for i in apps]
-    dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
-    return findRepeatDates(dates,names)
-
-def plotTimeline(names, dates, timeline_name=''):
-    """Generates timeline of of app names with their respective dates of installation.
-    Names and dates must correspond to eachother via index. If no timeline_name is
-    specificied then this function returns the fig matplotlib object. Otherwise, it
-    saves .png file with the provided timeline name
-
-    Args:
-        names (list()): list of strings containing the names of all the apps
-        dates ([type]): list of datetime objects that correspond to the installation
-            of the apps in the names apps
-        timeline_name (str, optional): the name of the .png if you want
-            to save it. Defaults to ''.
-
-    Returns:
-        if no timeline_name is passed then
-            fig: the matplot lib fig object of the timeline
-        else
-            None
-    """
-
-    #https://matplotlib.org/3.2.1/gallery/lines_bars_and_markers/timeline.html
-    # Choose some nice levels
-    levels = np.tile([-11,11,-9,9,-7, 7, -5, 5, -3, 3, -1, 1],
-                     int(np.ceil(len(dates)/6)))[:len(dates)]
-
-    # Create figure and plot a stem plot with the date
-    fig, ax = plt.subplots(figsize=(8.8, 4), constrained_layout=True)
-    ax.set(title="Apps that facebook knows you've used")
-
-    markerline, stemline, baseline = ax.stem(dates, levels,
-                                             linefmt="#3B5998", basefmt="k-",
-                                             use_line_collection=True)
-
-    plt.setp(markerline, mec="k", mfc="w", zorder=3,color='#3B5998')
-
-    # Shift the markers to the baseline by replacing the y-data by zeros.
-    markerline.set_ydata(np.zeros(len(dates)))
-
-    # annotate lines
-    vert = np.array(['top', 'bottom'])[(levels > 0).astype(int)]
-    for d, l, r, va in zip(dates, levels, names, vert):
-        ax.annotate(r, xy=(d, l), xytext=(-3, np.sign(l)*3),
-                    textcoords="offset points", va=va, ha="right")
-
-    # format xaxis with 4 month intervals
-    ax.get_xaxis().set_major_locator(mdates.MonthLocator(interval=4))
-    ax.get_xaxis().set_major_formatter(mdates.DateFormatter("%b %Y"))
-    plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
-
-    # remove y axis and spines
-    ax.get_yaxis().set_visible(False)
-    for spine in ["left", "top", "right"]:
-        ax.spines[spine].set_visible(False)
-
-    ax.margins(y=0.1)
-    if timeline_name == '':
-        return fig
-    else:
-        plt.savefig(timeline_name + '.png')
-    plt.clf()
-
-def plotApps(path):
-    """Plots apps you installed on a timeline. For apps installed on the
-    the same day will show up as "app1 | app2 | app3 ...".
-
-    Args:
-        path (string): path to the facebook folder
-
-    Returns:
-        [fig]: the matplotlib fig object to be used for the GUI
-    """
-    FB = readFolder.Facebook(path)
-    names, dates = getApps(FB)
-    return plotTimeline(names,dates)
+    plt.axis('equal')
+    return fig
 
 def main():
-    FB = readFolder.Facebook('./facebook-christinebreckenridge')
-    names, dates = getApps(FB)
-    plotTimeline(names,dates,'testTL')
-    print('hello')
+    plotDataQuantity()
+    print('Data Quantity Visualized')
 
 
 if __name__ == '__main__':

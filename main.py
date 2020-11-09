@@ -52,7 +52,7 @@ def main():
                     vis_window.close()
                     break
         elif event == 'vis3':
-            figure = dataQuantity.plotApps(path)
+            figure = dataQuantity.plotDataQuantity()
             vis_window, window = gui.show_vis(figure,window)
 
             while True:
