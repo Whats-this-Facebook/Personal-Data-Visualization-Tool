@@ -20,7 +20,11 @@ def get_folder():
 def set_window(title=''):
     # define menu layout
     menu = [['File', ['Open Folder', 'Exit']], ['Help', ['About', ]]]
-    buttons = [[sg.Button('Top 10 words',key='vis1',size=(20, 3)),sg.Button('Apps you use',key='vis2',size=(20, 3))]]
+    buttons = [[
+        sg.Button('Top 10 words',key='vis1',size=(20, 3)),
+        sg.Button('Apps you use',key='vis2',size=(20, 3)),
+        sg.Button('Quantity of data',key='vis3',size=(20, 3))
+        ]]
 
     # define layout, show and read the window
     layout = [[sg.Menu(menu)], [sg.Col(buttons)]]
@@ -44,7 +48,7 @@ def show_vis(figure,window,title=''):
     window.close()
     layout = [[sg.Canvas(size=(640, 480), key='-CANVAS-')],
               [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
-    
+
     new_window = sg.Window(title, layout, finalize=True)
 
     canvas_elem = new_window['-CANVAS-']
@@ -65,13 +69,13 @@ def main():
     while True:
         if folder is None or folder == '':
             folder = sg.popup_get_folder('Please select a folder to open')
-        
+
         event, values = window.read()
         # --------------------- Button & Keyboard ---------------------
         if event == sg.WIN_CLOSED:
             break
 
-        
+
         # ----------------- Menu choices -----------------
         if event == 'Open Folder':
             newfolder = sg.popup_get_folder('New folder', no_window=True)
@@ -90,6 +94,9 @@ def main():
             continue
         elif event == 'vis2':
             #show vis2 func call
+            continue
+        elif event == 'vis3':
+            #show vis3 func call
             continue
 
     window.close()
