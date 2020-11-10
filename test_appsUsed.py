@@ -6,13 +6,14 @@ import pytest
 def test_plotApps():
     assert plotApps('./Plots/facebook-christinebreckenridge') != None 
 
-#def test_plotApps_small():
-#    assert plotApps('facebook-100056193726775') != None
+def test_plotApps_small():
+    assert plotApps('facebook-100056193726775') == None
 
 
 def main():
     fig = plotApps('./Plots/facebook-christinebreckenridge')
     plt.show()
+    print(plotApps('facebook-100056193726775'))
     print('hello') 
 
 

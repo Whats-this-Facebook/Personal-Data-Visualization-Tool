@@ -3,7 +3,7 @@
 import pytest
 import Plots.usage_timeline as timeline
 import matplotlib.pyplot as plt
-import CLI.readFolder_demo as readFolder
+import CLI.readFolder as readFolder
 
 @pytest.fixture
 

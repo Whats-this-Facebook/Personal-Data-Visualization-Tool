@@ -110,7 +110,7 @@ class Facebook:
               d = json.load(f)
               return d["installed_apps"]
         except:
-            print("read apps' json fail")
+            #print("read apps' json fail")
             return[]
 
     def offFB_activities(self):
