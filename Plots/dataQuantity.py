@@ -6,14 +6,18 @@ import matplotlib.style as style
 # import CLI.readFolder as readFolder
 # from matplotlib.colors import LinearSegmentedColormap
 
-def plotDataQuantity():
+
+
+
+# Arg: Folder path of facebook personal data file.
+def plotDataQuantity(datFolder):
     fig, ax = plt.subplots()
 
     # Data to plot
-    labels = 'Python', 'C++', 'Ruby', 'Java'
+    labels = 'Python', 'C++', 'Ruby', datFolder
     sizes = [215, 130, 245, 210]
     colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
-    explode = (0.1, 0, 0, 0)  # explode 1st slice
+    explode = (0, 0, 0, 0)  # explode 1st slice
 
     # Plot
     plt.pie(sizes, explode=explode, labels=labels, colors=colors,
