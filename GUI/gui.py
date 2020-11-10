@@ -26,7 +26,6 @@ def set_window(title=''):
     layout = [[sg.Menu(menu)], [sg.Col(buttons)]]
     window = sg.Window('Visualization Browser', layout,
             return_keyboard_events=True,
-            location=(0, 0),
             use_default_focus=False)
     return window
 

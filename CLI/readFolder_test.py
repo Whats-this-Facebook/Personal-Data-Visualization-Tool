@@ -1,5 +1,5 @@
 import pytest
-from CLI.readFolder_demo import comments_str
+from CLI.readFolder import comments_str
 
 def test_empty():
   assert comments_str([]) == ""
