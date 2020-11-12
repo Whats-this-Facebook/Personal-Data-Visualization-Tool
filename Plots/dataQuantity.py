@@ -2,27 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.style as style
 import os as os
-# import matplotlib.dates as mdates
-# from datetime import datetime
-# import CLI.readFolder as readFolder
-# from matplotlib.colors import LinearSegmentedColormap
-
-
-
-"""
-
-def messages(self):
-    path = str(self.folder + "/messages/inbox/")
-    messages = []
-    try:
-        folders = os.scandir(path)
-        for f in folders:
-          if os.path.isdir(os.path.join(path, f)):
-            folder = os.scandir(os.path.join(path, f))
-            for file in folder:
-              if os.path.isfile(os.path.join(path, file)):
-                messages.append(json.load(open(os.path.join(path, file))))
-"""
 
 # Folder size function from ->
 # https://www.thepythoncode.com/article/get-directory-size-in-bytes-using-python
@@ -71,11 +50,11 @@ def getCategoryObjects(data_folder):
 
 # Converts a bytes number into a more readable string
 def bytesToString(size):
-    if size > 1000000000: # Gigabytes
+    if size >= 1000000000: # Gigabytes
         return str(round(size/1000000000, 2)) + " gigabytes"
-    elif size > 1000000: # Megabytes
+    elif size >= 1000000: # Megabytes
         return str(round(size/1000000, 2)) + " megabytes"
-    elif size > 1000: # Kilobytes
+    elif size >= 1000: # Kilobytes
         return str(round(size/1000, 2)) + " kilobytes"
     else:
         return str(size) + " bytes"
@@ -100,24 +79,6 @@ def plotDataQuantity(pie_chart_name, data_folder):
         if (x["size"] > totalBytes/200):
             labels.append(x["name"] + ":\n" + bytesToString(x["size"]))
             sizes.append(x["size"])
-
-    # Data to plot
-    #labels = 'Python', 'C++', 'Ruby', data_folder
-    #labels = getLabels(data_folder)
-    #print(len(labels))
-    #labels = 'Python', 'C++', 'Ruby', data_folder
-    #sizes = [215, 130, 245, 10]
-    #sizes = [20 for i in range(34)]
-    #colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
-
-    # Plot
-    #plt.pie(sizes, labels=labels, colors=colors,
-    #plt.pie(sizes, labels=labels, autopct='%0.1f%%', shadow=False, startangle=140)
-    #patches, texts = plt.pie(sizes, startangle=90)
-    #plt.legend(patches, labels, loc="best")
-
-    #plt.axis('equal')
-    #plt.tight_layout()
 
     plt.rcParams['font.size'] = 8.0
 
@@ -152,7 +113,6 @@ def plotDataQuantity(pie_chart_name, data_folder):
 def main():
     plotDataQuantity("test", "/Users/AidenTheJaunty/Desktop/Software Engineering/facebook-aidenjnelson")
     print('Data Quantity Visualized')
-
 
 if __name__ == '__main__':
     main()

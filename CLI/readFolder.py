@@ -9,7 +9,7 @@ def Main():
 
   myFB = Facebook(args.filepath)
   choose = input('Please choose a visualization:\n1. What are my top 10 most used words? \n2. Who have I pokde most? \n3.Who are the friends I interact with the most? \n4. What facebook knows about my off-facebook activity? \n5. What facebook knows about my installed aoos?\nYour choice: ')
-  
+
   if int(choose):
     user_operation(myFB, int(choose))
   else:
