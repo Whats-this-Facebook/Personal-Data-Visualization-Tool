@@ -2,7 +2,7 @@
 from matplotlib.collections import PolyCollection
 import matplotlib.pyplot as plt
 import numpy as np
-import CLI.readFolder as readFolder
+import readFolder
 from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
@@ -17,20 +17,71 @@ def get_comment_dates(FB):
 	dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
 	return dates
 
+def get_message_dates(FB):
+	messages = FB.messages()
+	profile = FB.profile()
+	name = profile['name']['full_name']
+
+	dates = []
+	for message in messages:
+		for i in message['messages']:
+			if i['sender_name'] == name:
+				dates.append(datetime.fromtimestamp(i['timestamp_ms']//1000).isoformat()) #these timestamps are in milliseconds so divide by 1000
+	dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
+	return dates
+
+def get_post_dates(FB):
+	posts = FB.posts()
+	dates = []
+	for p in posts:
+		for post in p:
+			dates.append(datetime.fromtimestamp(post['timestamp']).isoformat()) 
+	dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
+	return dates
 
 def plot(FB):
+	# Create subplots
+	fig, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True)
+
 	dates = get_comment_dates(FB)
 	count = []
 	date = []
 	for el in dates:
-		date.append(el)
-		count.append(dates.count(el))
+		if el not in date:
+			date.append(el) 
+			count.append(dates.count(el))
 
-	fig, ax = plt.subplots()
-	plt.bar(date,count)
-	ax.yaxis.get_major_locator().set_params(integer=True)
-	ax.set_ylim(ymin=0, ymax=None)
+	ax1.bar(date,count)
+	ax1.yaxis.get_major_locator().set_params(integer=True)
+	ax1.set_ylim(ymin=0, ymax=None)
 
+	dates = get_post_dates(FB)
+	count = []
+	date = []
+	for el in dates:
+		if el not in date:
+			date.append(el) 
+			count.append(dates.count(el))
+
+	ax2.bar(date,count)
+	ax2.yaxis.get_major_locator().set_params(integer=True)
+	ax2.set_ylim(ymin=0, ymax=None)
+
+	dates = get_message_dates(FB)
+	count = []
+	date = []
+	for el in dates:
+		if el not in date:
+			date.append(el) 
+			count.append(dates.count(el))
+	ax3.bar(date,count)
+	ax3.yaxis.get_major_locator().set_params(integer=True)
+	ax3.set_ylim(ymin=0, ymax=None)
+	plt.setp(ax3.get_xticklabels(), rotation=30, ha="right")
+
+	ax1.set_title('Comments')
+	ax2.set_title('Posts')
+	ax3.set_title('Messages')
 	# plt.show()
 	return fig
 
@@ -62,7 +113,7 @@ class Toolbar(NavigationToolbar2Tk):
 
 
 if __name__ == "__main__":
-
+	
 
 	# ------------------------------- PySimpleGUI CODE
 
@@ -72,7 +123,7 @@ if __name__ == "__main__":
 			layout=[
 				[sg.Canvas(key='fig_cv',
 						   # it's important that you set this size
-						   size=(400 * 2, 400)
+						   size=(640, 600)
 						   )]
 			],
 			background_color='#DAE0E6',
@@ -84,14 +135,14 @@ if __name__ == "__main__":
 	window = sg.Window('Graph with controls', layout, finalize=True)
 	data = readFolder.Facebook('/Users/christinebreckenridge/Downloads/facebook-christinebreckenridge')
 	fig = plot(data)
-	DPI = fig.get_dpi()
-	fig.set_size_inches(404 * 2 / float(DPI), 404 / float(DPI))
+	# DPI = fig.get_dpi()
+	# fig.set_size_inches(640 / float(DPI), 480 / float(DPI))
 	draw_figure_w_toolbar(window['fig_cv'].TKCanvas, fig, window['controls_cv'].TKCanvas)
-
+	
 	while True:
 		event, values = window.read()
 		print(event, values)
 		if event in (sg.WIN_CLOSED, 'Exit'):  # always,  always give a way out!
 			break
-
+			
 	window.close()

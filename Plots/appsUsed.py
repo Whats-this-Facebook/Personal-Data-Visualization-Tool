@@ -21,6 +21,8 @@ def findRepeatDates(dates,names):
 
 def getApps(FB):
     apps = FB.apps()
+    if apps == []:
+        return None, None
     names = [i['name'] for i in apps]
     dates = [datetime.fromtimestamp(i['added_timestamp']).isoformat() for i in apps]
     dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
@@ -89,16 +91,21 @@ def plotTimeline(names, dates, timeline_name=''):
 
 def plotApps(path):
     """Plots apps you installed on a timeline. For apps installed on the
-    the same day will show up as "app1 | app2 | app3 ...".
+    the same day will show up as "app1 | app2 | app3 ...". Returns None if no
+    apps were found.
 
     Args:
         path (string): path to the facebook folder
 
     Returns:
-        [fig]: the matplotlib fig object to be used for the GUI
+        fig: the matplotlib fig object to be used for the GUI
+        
+        or, None: if no apps exist
     """
     FB = readFolder.Facebook(path)
     names, dates = getApps(FB)
+    if names == None:
+        return None
     return plotTimeline(names,dates)
 
 def main():
