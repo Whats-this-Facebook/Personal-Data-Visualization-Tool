@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import PySimpleGUI as sg
 import Plots.offFBActivity as offFBActivity
 import Plots.accountActivityLocations as accountActivityLocations
+import Plots.usage_timeline as usage_timeline
 
 my_facebook_path = ""
 
@@ -119,7 +120,19 @@ def main():
                     window = gui.set_window()
                     vis_window.close()
                     break
+        elif event == 'vis6':
+            figure = usage_timeline.plot(data)
+            vis_window, window = gui.show_vis(figure, window)
+            figure_agg = None
 
+            while True:
+                vis_event, vis_values = vis_window.read()
+                if vis_event == sg.WIN_CLOSED:
+                    break
+                elif vis_event == 'Back':
+                    window = gui.set_window()
+                    vis_window.close()
+                    break
 
 
 

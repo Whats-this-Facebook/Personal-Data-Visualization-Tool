@@ -2,7 +2,7 @@
 from matplotlib.collections import PolyCollection
 import matplotlib.pyplot as plt
 import numpy as np
-import readFolder
+# import readFolder
 from datetime import datetime
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
