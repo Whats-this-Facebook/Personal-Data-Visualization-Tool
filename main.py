@@ -7,6 +7,7 @@ import CLI.comments as comments
 import CLI.readFolder as readFolder
 import matplotlib.pyplot as plt
 import PySimpleGUI as sg
+import Plots.offFBActivity as offFBActivity
 
 my_facebook_path = ""
 
@@ -79,6 +80,33 @@ def main():
                     window = gui.set_window()
                     vis_window.close()
                     break
+        elif event == 'vis4':
+            activityList = data.offFB_activities_list()
+            vis_window, window = gui.show_vis_list(activityList, window)
+            figure_agg = None
+
+            while True:
+                vis_event, vis_values = vis_window.read()
+                if vis_event == sg.WIN_CLOSED:
+                    break
+
+                if figure_agg:
+                    # ** IMPORTANT ** Clean up previous drawing before drawing again
+                    offFBActivity.delete_figure_agg(figure_agg)
+                
+                # get first listbox item chosen (returned as a list)
+                choice = vis_values['-LISTBOX-'][0]
+
+                figure = offFBActivity.plotActivities(data,choice)
+
+                figure_agg = offFBActivity.draw_figure(
+                vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
+
+                if vis_event == 'Back':
+                    window = gui.set_window()
+                    vis_window.close()
+                    break
+
 
 
 

@@ -145,5 +145,13 @@ class Facebook:
             print("read offFB' json fail")
             return []
 
+    def offFB_activities_list(self):
+        activityList = []
+        activity_dict = self.offFB_activities()
+        for act in activity_dict:
+                activityList.append(act['name'])
+        
+        return activityList
+
 if __name__ == "__main__":
     Main()

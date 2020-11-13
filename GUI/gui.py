@@ -38,7 +38,8 @@ def set_window(title=''):
     buttons = [[
         sg.Button('Top 10 words',key='vis1',size=(20, 3)),
         sg.Button('Apps you use',key='vis2',size=(20, 3)),
-        sg.Button('Quantity of data',key='vis3',size=(20, 3))
+        sg.Button('Quantity of data',key='vis3',size=(20, 3)),
+        sg.Button('Off FB Activites',key='vis4',size=(20, 3))
         ]]
 
     # define layout, show and read the window
@@ -69,6 +70,25 @@ def show_vis(figure,window,title=''):
     canvas = canvas_elem.TKCanvas
     draw_figure(canvas,figure)
     return new_window, window
+
+def show_vis_list(listbox_values,window,title=''):
+    window.close()
+    figure_w, figure_h = 640, 480
+
+    col_listbox = [[sg.Listbox(values=listbox_values, change_submits=True, size=(28, 30), key='-LISTBOX-')],
+               [sg.Button('Back', size=(10, 2), font='Helvetica 14')]]
+
+    col_multiline = sg.Col([[sg.MLine(size=(70, 35), key='-MULTILINE-')]])
+    col_canvas = sg.Col([[sg.Canvas(size=(figure_w, figure_h), key='-CANVAS-')]])
+    col_instructions = sg.Col([[sg.Pane([col_canvas, col_multiline], size=(650, 425))]])
+
+    layout = [[sg.Text('Interactions List', font=('ANY 18'))],
+          [sg.Col(col_listbox), col_instructions]]
+
+    new_window = sg.Window('Your Off Facebook Activity Timeline',
+                   layout, resizable=True, finalize=True)
+    return new_window, window
+
 
 def main():
 
@@ -110,6 +130,9 @@ def main():
             #show vis2 func call
             continue
         elif event == 'vis3':
+            #show vis3 func call
+            continue
+        elif event == 'vis4':
             #show vis3 func call
             continue
 
