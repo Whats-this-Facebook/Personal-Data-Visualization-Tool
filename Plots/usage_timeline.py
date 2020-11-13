@@ -42,6 +42,9 @@ def get_post_dates(FB):
 def plot(FB):
 	# Create subplots
 	fig, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True)
+	fig.tight_layout(h_pad=2)
+	# fig.suptitle('Your FB usage over time')
+	plt.subplots_adjust(top=0.9)
 
 	dates = get_comment_dates(FB)
 	count = []
@@ -79,9 +82,9 @@ def plot(FB):
 	ax3.set_ylim(ymin=0, ymax=None)
 	plt.setp(ax3.get_xticklabels(), rotation=30, ha="right")
 
-	ax1.set_title('Comments')
-	ax2.set_title('Posts')
-	ax3.set_title('Messages')
+	ax1.set_title('Comment Frequency')
+	ax2.set_title('Post Frequency')
+	ax3.set_title('Message Frequency')
 	# plt.show()
 	return fig
 
