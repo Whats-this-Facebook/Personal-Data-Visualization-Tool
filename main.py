@@ -108,7 +108,7 @@ def main():
                     vis_window.close()
                     break
         elif event == 'vis5':
-            figure = accountActivityLocations.plotApps(my_facebook_path)
+            figure = accountActivityLocations.plotLocations(my_facebook_path)
             vis_window, window = gui.show_vis(figure,window)
 
             while True:

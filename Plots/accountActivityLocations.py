@@ -10,6 +10,7 @@ def constructGeoPandaDF(FB):
     to be plotted
 
     Args:
+        readFolder object
 
     Returns:
         geopanda dataframe
@@ -46,7 +47,7 @@ def constructGeoPandaDF(FB):
     return df
 
 
-def plotApps(path):
+def plotLocations(path):
     """Plots account activity locations
 
     Args:
@@ -73,10 +74,7 @@ def plotApps(path):
     return plt.gcf()
 
 def main():
-    FB = readFolder.Facebook('./facebook-christinebreckenridge')
-    names, dates = getApps(FB)
-    plotTimeline(names,dates,'testTL')
-    print('hello')
+    print('howdy')
 
 
 if __name__ == '__main__':
