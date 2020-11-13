@@ -44,7 +44,7 @@ def plot(FB):
 	fig, (ax1, ax2, ax3) = plt.subplots(3, 1, sharex=True)
 	fig.tight_layout(h_pad=2)
 	# fig.suptitle('Your FB usage over time')
-	plt.subplots_adjust(top=0.9)
+	plt.subplots_adjust(top=0.9,left=0.15,bottom=0.2,right=0.9)
 
 	dates = get_comment_dates(FB)
 	count = []
