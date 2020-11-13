@@ -8,7 +8,9 @@ import matplotlib.pyplot as plt
     GUI window to select data folder
 '''
 def set_colors():
-    sg.set_options(background_color='#3b5998')
+    sg.set_options(background_color='#3b5998',
+        element_background_color='#3b5998',
+        text_element_background_color='#3b5998')
 
 def get_folder():
     # Get the folder containing the images from the user
@@ -92,7 +94,7 @@ def show_vis(figure,window,title='',toolbar=False):
                 ],
                 pad=(0, 0)
             )],
-            [sg.B('Back')]
+            [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]
         ]
         new_window = sg.Window(title, layout, finalize=True)
         canvas_elem = new_window['-CANVAS-']

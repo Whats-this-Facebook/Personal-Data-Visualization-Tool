@@ -14,7 +14,7 @@ import Plots.usage_timeline as usage_timeline
 my_facebook_path = ""
 
 def main():
-    #gui.set_colors()
+    gui.set_colors()
     window = gui.set_window_with_info()
 
     while True:
@@ -60,7 +60,7 @@ def main():
 
         elif event == 'vis2':
             figure = appsUsed.plotApps(my_facebook_path)
-            vis_window, window = gui.show_vis(figure,window)
+            vis_window, window = gui.show_vis(figure,window,toolbar=True)
 
             while True:
                 vis_event, vis_values = vis_window.read()
