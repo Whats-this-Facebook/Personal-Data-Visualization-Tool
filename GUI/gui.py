@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import PySimpleGUI as sg
 import os
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import matplotlib.pyplot as plt
 
 '''
@@ -58,18 +58,59 @@ def draw_figure(canvas, figure):
     figure_canvas_agg.get_tk_widget().pack(side='top', fill='both', expand=1)
     return figure_canvas_agg
 
-def show_vis(figure,window,title=''):
+def draw_figure_w_toolbar(canvas, fig, canvas_toolbar):
+    if canvas.children:
+        for child in canvas.winfo_children():
+            child.destroy()
+    if canvas_toolbar.children:
+        for child in canvas_toolbar.winfo_children():
+            child.destroy()
+    figure_canvas_agg = FigureCanvasTkAgg(fig, master=canvas)
+    figure_canvas_agg.draw()
+    toolbar = Toolbar(figure_canvas_agg, canvas_toolbar)
+    toolbar.update()
+    figure_canvas_agg.get_tk_widget().pack(side='right', fill='both', expand=1)
+
+
+class Toolbar(NavigationToolbar2Tk):
+    def __init__(self, *args, **kwargs):
+        super(Toolbar, self).__init__(*args, **kwargs)
+
+def show_vis(figure,window,title='',toolbar=False):
     if figure is None:
         return
     window.close()
-    layout = [[sg.Canvas(size=(640, 480), key='-CANVAS-')],
-              [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+    if toolbar:
+        layout = [
+            [sg.Canvas(key='-TOOLBAR-')],
+            [sg.Column(
+                layout=[
+                    [sg.Canvas(key='-CANVAS-',
+                               # it's important that you set this size
+                               size=(640, 600)
+                               )]
+                ],
+                pad=(0, 0)
+            )],
+            [sg.B('Back')]
+        ]
+        new_window = sg.Window(title, layout, finalize=True)
+        canvas_elem = new_window['-CANVAS-']
+        canvas = canvas_elem.TKCanvas
+        toolbar_canvas_elem = new_window['-TOOLBAR-']
+        toolbar_canvas = toolbar_canvas_elem.TKCanvas
 
-    new_window = sg.Window(title, layout, finalize=True)
+        draw_figure_w_toolbar(canvas,figure,toolbar_canvas)
 
-    canvas_elem = new_window['-CANVAS-']
-    canvas = canvas_elem.TKCanvas
-    draw_figure(canvas,figure)
+    else:
+        layout = [[sg.Canvas(size=(640, 480), key='-CANVAS-')],
+                  [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+
+        new_window = sg.Window(title, layout, finalize=True)
+
+        canvas_elem = new_window['-CANVAS-']
+        canvas = canvas_elem.TKCanvas
+        draw_figure(canvas,figure)
     return new_window, window
 
 def show_vis_list(listbox_values,window,title=''):

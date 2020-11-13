@@ -110,7 +110,7 @@ def main():
                     break
         elif event == 'vis5':
             figure = accountActivityLocations.plotLocations(my_facebook_path)
-            vis_window, window = gui.show_vis(figure,window)
+            vis_window, window = gui.show_vis(figure,window,toolbar=True)
 
             while True:
                 vis_event, vis_values = vis_window.read()
@@ -122,7 +122,7 @@ def main():
                     break
         elif event == 'vis6':
             figure = usage_timeline.plot(data)
-            vis_window, window = gui.show_vis(figure, window)
+            vis_window, window = gui.show_vis(figure, window,toolbar=True)
             figure_agg = None
 
             while True:
