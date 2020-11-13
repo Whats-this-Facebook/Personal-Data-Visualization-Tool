@@ -8,6 +8,7 @@ import CLI.readFolder as readFolder
 import matplotlib.pyplot as plt
 import PySimpleGUI as sg
 import Plots.offFBActivity as offFBActivity
+import Plots.accountActivityLocations as accountActivityLocations
 
 my_facebook_path = ""
 
@@ -93,7 +94,7 @@ def main():
                 if figure_agg:
                     # ** IMPORTANT ** Clean up previous drawing before drawing again
                     offFBActivity.delete_figure_agg(figure_agg)
-                
+
                 # get first listbox item chosen (returned as a list)
                 choice = vis_values['-LISTBOX-'][0]
 
@@ -106,7 +107,18 @@ def main():
                     window = gui.set_window()
                     vis_window.close()
                     break
+        elif event == 'vis5':
+            figure = accountActivityLocations.plotApps(my_facebook_path)
+            vis_window, window = gui.show_vis(figure,window)
 
+            while True:
+                vis_event, vis_values = vis_window.read()
+                if vis_event == sg.WIN_CLOSED:
+                    break
+                elif vis_event == 'Back':
+                    window = gui.set_window()
+                    vis_window.close()
+                    break
 
 
 

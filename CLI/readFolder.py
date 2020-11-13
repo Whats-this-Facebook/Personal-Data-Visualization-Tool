@@ -87,7 +87,7 @@ class Facebook:
         except:
             print("read profile info json fail")
             return []
-    
+
     def comments(self):
         path = str(self.folder + "/comments/comments.json")
         try:
@@ -150,8 +150,19 @@ class Facebook:
         activity_dict = self.offFB_activities()
         for act in activity_dict:
                 activityList.append(act['name'])
-        
+
         return activityList
+
+    def account_activity(self):
+        path = str(self.folder + "/security_and_login_information/account_activity.json")
+        try:
+            with open(path) as f:
+              d = json.load(f)
+              return d["account_activity"]
+        except:
+            print("read account_activity' json fail")
+            return []
+
 
 if __name__ == "__main__":
     Main()

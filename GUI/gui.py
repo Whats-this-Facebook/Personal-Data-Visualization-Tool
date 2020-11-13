@@ -39,7 +39,8 @@ def set_window(title=''):
         sg.Button('Top 10 words',key='vis1',size=(20, 3)),
         sg.Button('Apps you use',key='vis2',size=(20, 3)),
         sg.Button('Quantity of data',key='vis3',size=(20, 3)),
-        sg.Button('Off FB Activites',key='vis4',size=(20, 3))
+        sg.Button('Off FB Activites',key='vis4',size=(20, 3)),
+        sg.Button('Account Activity Locations',key='vis5',size=(20, 3))
         ]]
 
     # define layout, show and read the window
@@ -133,6 +134,9 @@ def main():
             #show vis3 func call
             continue
         elif event == 'vis4':
+            #show vis3 func call
+            continue
+        elif event == 'vis5':
             #show vis3 func call
             continue
 
