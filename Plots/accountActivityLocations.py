@@ -33,8 +33,8 @@ def constructGeoPandaDF(FB):
             if isinstance(cityCoords, dict):
                 cities.append(i["city"])
                 countries.append(i["city"])
-                latitudes.append(cityCoords["location"]["lat"])
-                longitudes.append(cityCoords["location"]["lon"])
+                latitudes.append(float(cityCoords["location"]["lat"]))
+                longitudes.append(float(cityCoords["location"]["lon"]))
 
     df = pd.DataFrame(
         {'City': cities,
