@@ -96,13 +96,14 @@ def main():
                     # ** IMPORTANT ** Clean up previous drawing before drawing again
                     offFBActivity.delete_figure_agg(figure_agg)
 
-                # get first listbox item chosen (returned as a list)
-                choice = vis_values['-LISTBOX-'][0]
+                if len(vis_values['-LISTBOX-']) > 0:
+                    # get first listbox item chosen (returned as a list)
+                    choice = vis_values['-LISTBOX-'][0]
 
-                figure = offFBActivity.plotActivities(data,choice)
+                    figure = offFBActivity.plotActivities(data,choice)
 
-                figure_agg = offFBActivity.draw_figure(
-                vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
+                    figure_agg = offFBActivity.draw_figure(
+                    vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
 
                 if vis_event == 'Back':
                     window = gui.set_window()
