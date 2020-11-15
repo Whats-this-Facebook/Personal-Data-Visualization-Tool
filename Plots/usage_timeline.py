@@ -35,7 +35,8 @@ def get_post_dates(FB):
 	dates = []
 	for p in posts:
 		for post in p:
-			dates.append(datetime.fromtimestamp(post['timestamp']).isoformat()) 
+			if post['timestamp'] is not None:
+				dates.append(datetime.fromtimestamp(post['timestamp']).isoformat()) 
 	dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
 	return dates
 
