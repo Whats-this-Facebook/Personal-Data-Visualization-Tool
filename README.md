@@ -135,6 +135,10 @@ CS561 Software Engineering Group Project
 
 ### Denue Grant
 
+##### :closed_book: [As a developer, I want to front load all user figures and information at runtime](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/milestone/36)
+
+##### :closed_book: [Improve off-Facebook activity visualizations](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/milestone/38)
+
 ### Team
 
 ##### :closed_book: [As a user, I want aesthetically pleasing data visualizations.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/26)
