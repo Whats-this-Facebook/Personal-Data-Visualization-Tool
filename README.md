@@ -144,7 +144,7 @@ CS561 Software Engineering Group Project
 ##### :closed_book: [As a user, I want aesthetically pleasing data visualizations.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/26)
 
 
-### Bonus
+### Unassigned
 
 ##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
