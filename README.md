@@ -104,18 +104,43 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a user, I want a back button so that I can navigate back to previous screens.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/33)
 
+### Team Members and Roles (Sprint 3-Due 12/7/2020)
+#### :dog: Product Owner: *Denue Grant*
+#### :cyclone: Scrum Master: *Ching-Fang Wu*
+#### :hammer: Developers: *Aiden Nelson, Daniel De Leon, Christine Breckenridge*
+<br/>
 
-# Sprint 3 Stories (Due 12/7/2020)
 
-##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
+### Christine Breckenridge
 
 ##### :closed_book: [As a user, I want to be able to see which specific JSON files were used to create the visualization I am looking at, so that I may go inspect the raw data myself.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/18)
 
+
+### Ching-Fang Wu
+
 ##### :closed_book: [As a user, I want a documentation page garanteeing my information privacy so that I know I can trust the tool.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/9)
+
+
+### Aiden Nelson
 
 ##### :closed_book: [As a user, I want a documentation page that shows me how to install and use the application.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/10)
 
 ##### :closed_book: [As a user, I want a cool app icon so that I can feel like the tool is legit.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/8)
 
+
+### Daniel De Leon
+
+##### :closed_book: [Add updates to 10 words and timeline features](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/milestone/37)
+
+
+### Denue Grant
+
+### Team
+
 ##### :closed_book: [As a user, I want aesthetically pleasing data visualizations.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/26)
+
+
+### Bonus
+
+##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
