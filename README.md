@@ -148,3 +148,5 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a user, I want a menu button and screen so that I may change user options.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/)
 
+##### :closed_book: [As a developer, I want our application to check for all necessary dependencies before running](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/milestone/35)
+
