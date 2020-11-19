@@ -115,6 +115,8 @@ CS561 Software Engineering Group Project
 
 ##### :closed_book: [As a user, I want to be able to see which specific JSON files were used to create the visualization I am looking at, so that I may go inspect the raw data myself.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/18)
 
+##### :closed_book: [As a user, I want to know who's pages I visit the most](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/milestone/39)
+
 
 ### Ching-Fang Wu
 
@@ -126,6 +128,10 @@ CS561 Software Engineering Group Project
 ##### :closed_book: [As a user, I want a documentation page that shows me how to install and use the application.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/10)
 
 ##### :closed_book: [As a user, I want a cool app icon so that I can feel like the tool is legit.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/8)
+
+##### :closed_book: [As a user, I want an installer so that I have an easy way to install the app.](https://github.com/Aidenjn/Personal-Data-Visualization-Tool/milestone/7)
+
+##### :closed_book: [As a developer, I want compatibility with Windows OS](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/milestone/40)
 
 
 ### Daniel De Leon
