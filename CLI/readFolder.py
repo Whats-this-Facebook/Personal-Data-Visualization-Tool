@@ -119,7 +119,7 @@ class Facebook:
         try:
             folders = os.scandir(path)
             for f in folders:
-              if os.path.isfile(os.path.join(path, f)) and ('post' in f.name):
+              if os.path.isfile(os.path.join(path, f)) and ('your_posts' in f.name):
                     posts.append(json.load(open(os.path.join(path, f))))
         except:
             print("read posts json fail")
