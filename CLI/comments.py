@@ -5,7 +5,7 @@ import os
 def getAllJsonFromMainFolder(mainPath):
         subFolders = mainFolders(mainPath)
         for subFolder in subFolders:
-            path = os.join(mainPath, subFolder)
+            path = os.path.join(mainPath, subFolder)
             insideFolders(path)
 
 # get all folders' name under main folder
@@ -34,8 +34,8 @@ def readJSON(path):
 
 def getAllComments(path):
     try:
-        if os.join('comments', 'comments.json') not in path:
-            path = os.join(path, 'comments', 'comments.json')
+        if os.path.join('comments', 'comments.json') not in path:
+            path = os.path.join(path, 'comments', 'comments.json')
 
         comments_str = ''
         with open(path) as f:
@@ -54,7 +54,7 @@ def getAllComments(path):
 
 def Main():
         path = input('Enter your folder path:')
-        comments_path = os.join(path, 'comments', 'comments.json')
+        comments_path = os.path.join(path, 'comments', 'comments.json')
         
         # allC is all comments combined in one string.
         allC = getAllComments(comments_path)
