@@ -177,10 +177,13 @@ def main():
             #show vis3 func call
             continue
         elif event == 'vis4':
-            #show vis3 func call
+            #show vis4 func call
             continue
         elif event == 'vis5':
-            #show vis3 func call
+            #show vis5 func call
+            continue
+        elif event == 'vis6':
+            #show vis6 func call
             continue
 
     window.close()

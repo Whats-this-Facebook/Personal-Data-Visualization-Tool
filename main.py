@@ -12,6 +12,25 @@ import Plots.accountActivityLocations as accountActivityLocations
 import Plots.usage_timeline as usage_timeline
 
 my_facebook_path = ""
+figure_dict = {}
+
+def frontloader(data, my_facebook_path):
+    print("Entering frontloader")
+    comments = data.comments()
+    comments_string = readFolder.comments_str(comments)
+    print("generating visualization 1")
+    figure_dict["vis1"] = wordCounter.freqWords2Barchart(comments_string)
+    print("generating visualization 2")
+    figure_dict["vis2"] = appsUsed.plotApps(my_facebook_path)
+    print("generating visualization 3")
+    figure_dict["vis3"] = dataQuantity.plotDataQuantity("", data.folder)
+    print("generating visualization 4")
+    figure_dict["vis4"] = offFBActivity.getOffFBActivityFigures(data)
+    print("generating visualization 5")
+    figure_dict["vis5"] = accountActivityLocations.plotLocations(my_facebook_path)
+    print("generating visualization 6")
+    figure_dict["vis6"] = usage_timeline.plot(data)
+    
 
 def main():
     gui.set_colors()
@@ -29,10 +48,9 @@ def main():
         elif event == 'Go':
             my_facebook_path = values['Browse']
             window.close()
-            window = gui.set_window()
             data = readFolder.Facebook(my_facebook_path)
-            comments = data.comments()
-            comments_string = readFolder.comments_str(comments)
+            frontloader(data, my_facebook_path)
+            window = gui.set_window()
 
         elif event == 'Open Folder':
             print('Open folder')
@@ -46,7 +64,7 @@ def main():
             sg.popup(terms)
 
         elif event == 'vis1':
-            figure = wordCounter.freqWords2Barchart(comments_string)
+            figure = figure_dict["vis1"]
             vis_window, window = gui.show_vis(figure,window)
 
             while True:
@@ -59,7 +77,7 @@ def main():
                     break
 
         elif event == 'vis2':
-            figure = appsUsed.plotApps(my_facebook_path)
+            figure = figure_dict["vis2"]
             vis_window, window = gui.show_vis(figure,window,toolbar=True)
 
             while True:
@@ -71,7 +89,7 @@ def main():
                     vis_window.close()
                     break
         elif event == 'vis3':
-            figure = dataQuantity.plotDataQuantity("", data.folder)
+            figure = figure_dict["vis3"]
             vis_window, window = gui.show_vis(figure,window)
 
             while True:
@@ -100,7 +118,7 @@ def main():
                     # get first listbox item chosen (returned as a list)
                     choice = vis_values['-LISTBOX-'][0]
 
-                    figure = offFBActivity.plotActivities(data,choice)
+                    figure = figure_dict["vis4"][choice]
 
                     figure_agg = offFBActivity.draw_figure(
                     vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
@@ -110,7 +128,7 @@ def main():
                     vis_window.close()
                     break
         elif event == 'vis5':
-            figure = accountActivityLocations.plotLocations(my_facebook_path)
+            figure = figure_dict["vis5"]
             vis_window, window = gui.show_vis(figure,window,toolbar=True)
 
             while True:
@@ -122,8 +140,8 @@ def main():
                     vis_window.close()
                     break
         elif event == 'vis6':
-            figure = usage_timeline.plot(data)
-            vis_window, window = gui.show_vis(figure, window,toolbar=True)
+            figure = figure_dict["vis6"]
+            vis_window, window = gui.show_vis(figure, window,toolbar=False)
             figure_agg = None
 
             while True:

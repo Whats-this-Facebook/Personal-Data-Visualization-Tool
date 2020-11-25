@@ -47,6 +47,35 @@ def getActivities(FB,choice):
     return names, dates
 
 
+def getActivityPlotInfo(app_activities):
+    names = [i['type'] for i in app_activities['events']]
+    dates = [datetime.fromtimestamp(i['timestamp']).isoformat() for i in app_activities['events']]
+    dates = [datetime.strptime(i[:10], "%Y-%m-%d") for i in dates]
+    return names, dates
+
+
+def getAppPlotInfo(app_activities):
+    names = []
+    dates = []
+    for act in app_activities['events']:
+        names.append(act['type'])
+        date = datetime.fromtimestamp(act['timestamp']).isoformat()
+        dates.append(datetime.strptime(date[:10], "%Y-%m-%d"))
+    return names, dates
+
+
+def getEventCount(names, dates, event):
+    size = len(names)
+    eventName = []
+    eventDate = []
+    for name, date in zip(names, dates):
+        if name == event:
+            eventName.append(name)
+            eventDate.append(date)
+
+    return eventName, eventDate
+
+
 def plotTimeline(names, dates, timeline_name=''):
 
     #https://matplotlib.org/3.2.1/gallery/lines_bars_and_markers/timeline.html
@@ -88,3 +117,46 @@ def plotTimeline(names, dates, timeline_name=''):
     else:
         plt.savefig(timeline_name + '.png')
     plt.clf()
+
+
+def plotSubplots(activity):
+    names, dates = getAppPlotInfo(activity)
+    unique_events = set(names)
+    unique_events = list(unique_events)
+    num_unique_events = len(unique_events)
+    # Create subplots
+    fig, axesList = plt.subplots(num_unique_events, 1, sharex=True)
+    axes_list = []
+    if num_unique_events == 1:
+        axes_list.append(axesList)
+    else:
+        axes_list = list(axesList)
+    fig.tight_layout(h_pad=2)
+    plt.subplots_adjust(top=0.9,left=0.15,bottom=0.2,right=0.9)
+
+    for ax, event in zip(axes_list, unique_events):
+        count = []
+        date = []
+        eNames, eDates = getEventCount(names, dates, event)
+        for el in eDates:
+            if el not in date:
+                date.append(el) 
+                count.append(eDates.count(el))
+
+        ax.bar(date,count)
+        ax.yaxis.get_major_locator().set_params(integer=True)
+        ax.set_ylim(ymin=0, ymax=None)
+        ax.set_title(event)
+        plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
+    
+    return fig
+
+
+def getOffFBActivityFigures(FB):
+    fig_dict = {} 
+    activities = FB.offFB_activities()
+    for activity in activities:
+        choice = activity['name']
+        fig_dict[choice] = plotSubplots(activity)
+    
+    return fig_dict
