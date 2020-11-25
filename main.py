@@ -31,6 +31,35 @@ def frontloader(data, my_facebook_path):
     print("generating visualization 6")
     figure_dict["vis6"] = usage_timeline.plot(data)
     
+def description_dict(my_facebook_path):
+    d = {}
+    d["vis1"] = ("The above figure shows the frequency of each of your most written words on Facebook.\n" 
+        + "The data used for this visualization can be found in:\n"
+        + my_facebook_path + "/comments/comments.json\n"
+        + my_facebook_path + "/posts/your_posts_1.json\n"
+        + my_facebook_path + "/messages/inbox")
+
+    d["vis2"] = ("The above figure shows a timeline of every app and website you have used that Facebook knows about.\n"
+        + "The data used for this visualization can be found in:\n"
+        + my_facebook_path + "/apps_and_websites/apps_and_websites.json")
+
+    d["vis3"] = "The above figure shows the quantity of data per category in your Facebook folder" 
+    
+    d["vis4"] = ("The above figure shows your off-Facebook activity that Facebook knows about.\n"
+        + "The data used for this visualization can be found in:\n"
+        + my_facebook_path + "/ads_and_businesses/your_off-facebook_activity.json")
+
+    d["vis5"] = ("The above figure shows a map of every location Facebook has tracked you\n"
+        + "The data used for this visualization can be found in:\n"
+        + my_facebook_path + "/security_and_login_information/account_activity.json")
+
+    d["vis6"] = ("The above figure shows a timeline of your sent messages, posts, and comments over time.\n"
+        + "The data used for tis visualization can be found in:\n"
+        + my_facebook_path + "/messages/inbox\n"
+        + my_facebook_path + "/profile_information/profile_information.json\n"
+        + my_facebook_path + "/comments/comments.json\n"
+        + my_facebook_path + "/posts/your_posts_1.json")
+    return d
 
 def main():
     gui.set_colors()
@@ -50,6 +79,7 @@ def main():
             window.close()
             data = readFolder.Facebook(my_facebook_path)
             frontloader(data, my_facebook_path)
+            desc_dict = description_dict(my_facebook_path)
             window = gui.set_window()
 
         elif event == 'Open Folder':
@@ -65,7 +95,8 @@ def main():
 
         elif event == 'vis1':
             figure = figure_dict["vis1"]
-            vis_window, window = gui.show_vis(figure,window)
+            desc = desc_dict["vis1"]
+            vis_window, window = gui.show_vis(figure,window,desc)
 
             while True:
                 vis_event, vis_values = vis_window.read()
@@ -78,7 +109,8 @@ def main():
 
         elif event == 'vis2':
             figure = figure_dict["vis2"]
-            vis_window, window = gui.show_vis(figure,window,toolbar=True)
+            desc = desc_dict["vis2"]
+            vis_window, window = gui.show_vis(figure,window,desc,toolbar=True)
 
             while True:
                 vis_event, vis_values = vis_window.read()
@@ -90,7 +122,8 @@ def main():
                     break
         elif event == 'vis3':
             figure = figure_dict["vis3"]
-            vis_window, window = gui.show_vis(figure,window)
+            desc = desc_dict["vis3"]
+            vis_window, window = gui.show_vis(figure,window,desc)
 
             while True:
                 vis_event, vis_values = vis_window.read()
@@ -102,7 +135,8 @@ def main():
                     break
         elif event == 'vis4':
             activityList = data.offFB_activities_list()
-            vis_window, window = gui.show_vis_list(activityList, window)
+            desc = desc_dict["vis4"]
+            vis_window, window = gui.show_vis_list(activityList, window, desc)
             figure_agg = None
 
             while True:
@@ -129,7 +163,8 @@ def main():
                     break
         elif event == 'vis5':
             figure = figure_dict["vis5"]
-            vis_window, window = gui.show_vis(figure,window,toolbar=True)
+            desc = desc_dict["vis5"]
+            vis_window, window = gui.show_vis(figure,window,desc,toolbar=True)
 
             while True:
                 vis_event, vis_values = vis_window.read()
@@ -141,7 +176,8 @@ def main():
                     break
         elif event == 'vis6':
             figure = figure_dict["vis6"]
-            vis_window, window = gui.show_vis(figure, window,toolbar=False)
+            desc = desc_dict["vis6"]
+            vis_window, window = gui.show_vis(figure, window,desc,toolbar=False)
             figure_agg = None
 
             while True:
