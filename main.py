@@ -54,7 +54,7 @@ def description_dict(my_facebook_path):
         + my_facebook_path + "/security_and_login_information/account_activity.json")
 
     d["vis6"] = ("The above figure shows a timeline of your sent messages, posts, and comments over time.\n"
-        + "The data used for tis visualization can be found in:\n"
+        + "The data used for this visualization can be found in:\n"
         + my_facebook_path + "/messages/inbox\n"
         + my_facebook_path + "/profile_information/profile_information.json\n"
         + my_facebook_path + "/comments/comments.json\n"
