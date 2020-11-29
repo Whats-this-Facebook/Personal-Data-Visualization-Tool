@@ -65,7 +65,6 @@ def getAppPlotInfo(app_activities):
 
 
 def getEventCount(names, dates, event):
-    size = len(names)
     eventName = []
     eventDate = []
     for name, date in zip(names, dates):
@@ -152,6 +151,63 @@ def plotSubplots(activity):
     return fig
 
 
+def get_activity_frontload_data(activity):
+    act_dict = {}
+    names, dates = getAppPlotInfo(activity)
+    uniqueEvents = set(names)
+    uniqueEvents = list(uniqueEvents)
+
+    for event in uniqueEvents:
+        event_dict = {}
+        count = []
+        date = []
+        eNames, eDates = getEventCount(names, dates, event)
+        for el in eDates:
+            if el not in date:
+                date.append(el) 
+                count.append(eDates.count(el))
+
+        event_dict["dates"] = date
+        event_dict["count"] = count 
+        act_dict[event] = event_dict
+        
+    return act_dict
+
+
+def make_figure(axesList, figure_data):
+
+    for ax, event in zip(axesList, figure_data.keys()):
+        dates = figure_data[event]["dates"]
+        count = figure_data[event]["count"]
+        #print(dates)
+        #print(count)
+        ax.bar(dates,count)
+        ax.yaxis.get_major_locator().set_params(integer=True)
+        ax.set_ylim(ymin=0, ymax=None)
+        ax.set_title(event)
+        plt.setp(ax.get_xticklabels(), rotation=30, ha="right")
+
+
+def get_figure(figure_data):
+    num_unique_events = len(figure_data)
+
+    # Create subplots
+    fig, axes = plt.subplots(num_unique_events, 1, sharex=True)
+
+    axesList = []
+    if num_unique_events == 1:
+        axesList.append(axes)
+    else:
+        axesList = list(axes)
+
+    fig.tight_layout(h_pad=2)
+    plt.subplots_adjust(top=0.9,left=0.15,bottom=0.2,right=0.9)
+
+    make_figure(axesList, figure_data)
+
+    return fig
+
+
 def getOffFBActivityFigures(FB):
     fig_dict = {} 
     activities = FB.offFB_activities()
@@ -160,3 +216,13 @@ def getOffFBActivityFigures(FB):
         fig_dict[choice] = plotSubplots(activity)
     
     return fig_dict
+
+
+def get_offFBActivity_Data_Dictionary(FB):
+    data_dict = {}
+    activities = FB.offFB_activities()
+    for activity in activities:
+        choice = activity['name']
+        data_dict[choice] = get_activity_frontload_data(activity)
+    
+    return data_dict

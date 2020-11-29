@@ -25,7 +25,7 @@ def frontloader(data, my_facebook_path):
     print("generating visualization 3")
     figure_dict["vis3"] = dataQuantity.plotDataQuantity("", data.folder)
     print("generating visualization 4")
-    figure_dict["vis4"] = offFBActivity.getOffFBActivityFigures(data)
+    figure_dict["vis4"] = offFBActivity.get_offFBActivity_Data_Dictionary(data)
     print("generating visualization 5")
     figure_dict["vis5"] = accountActivityLocations.plotLocations(my_facebook_path)
     print("generating visualization 6")
@@ -152,7 +152,8 @@ def main():
                     # get first listbox item chosen (returned as a list)
                     choice = vis_values['-LISTBOX-'][0]
 
-                    figure = figure_dict["vis4"][choice]
+                    figure_data = figure_dict["vis4"][choice]
+                    figure = offFBActivity.get_figure(figure_data)
 
                     figure_agg = offFBActivity.draw_figure(
                     vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
