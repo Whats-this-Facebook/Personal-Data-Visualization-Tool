@@ -85,7 +85,7 @@ def plotDataQuantity(pie_chart_name, data_folder):
     # Pie chart code modified from ->
     # https://matplotlib.org/3.3.2/gallery/pie_and_polar_charts/pie_and_donut_labels.html#sphx-glr-gallery-pie-and-polar-charts-pie-and-donut-labels-py
 
-    fig, ax = plt.subplots(figsize=(8, 6), subplot_kw=dict(aspect="equal"))
+    fig, ax = plt.subplots(figsize=(6, 4), subplot_kw=dict(aspect="equal"))
 
     wedges, texts = ax.pie(sizes, wedgeprops=dict(width=1), startangle=-40)
 
