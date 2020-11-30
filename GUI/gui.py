@@ -84,7 +84,6 @@ def show_vis(figure,window,desc=None,title='',toolbar=False):
     window.close()
     if toolbar:
         if desc is not None:
-            print("showing desc")
             layout = [
                 [sg.Canvas(key='-TOOLBAR-')],
                 [sg.Column(
