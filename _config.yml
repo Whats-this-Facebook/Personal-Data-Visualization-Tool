@@ -1,3 +1,8 @@
 theme: jekyll-theme-slate
 title: What's this, Facebook!?
 Description: A data visualization tool that can be used on your [Facebook data](https://www.facebook.com/help/1701730696756992?cms_id=131112897028467).
+
+show_downloads: "true"
+
+github:
+  zip_url: https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool/raw/gh-pages/wtf.zip
