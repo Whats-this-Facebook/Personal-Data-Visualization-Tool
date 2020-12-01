@@ -78,53 +78,91 @@ class Toolbar(NavigationToolbar2Tk):
     def __init__(self, *args, **kwargs):
         super(Toolbar, self).__init__(*args, **kwargs)
 
-def show_vis(figure,window,title='',toolbar=False):
+def show_vis(figure,window,desc=None,title='',toolbar=False):
     if figure is None:
         return
     window.close()
     if toolbar:
-        layout = [
-            [sg.Canvas(key='-TOOLBAR-')],
-            [sg.Column(
-                layout=[
-                    [sg.Canvas(key='-CANVAS-',
-                               # it's important that you set this size
-                               size=(640, 600)
-                               )]
-                ],
-                pad=(0, 0)
-            )],
-            [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]
-        ]
-        new_window = sg.Window(title, layout, finalize=True)
-        canvas_elem = new_window['-CANVAS-']
-        canvas = canvas_elem.TKCanvas
-        toolbar_canvas_elem = new_window['-TOOLBAR-']
-        toolbar_canvas = toolbar_canvas_elem.TKCanvas
+        if desc is not None:
+            layout = [
+                [sg.Canvas(key='-TOOLBAR-')],
+                [sg.Column(
+                    layout=[
+                        [sg.Canvas(key='-CANVAS-',
+                                   # it's important that you set this size
+                                   size=(640, 600)
+                                   )]
+                    ],
+                    pad=(0, 0)
+                )],
+                [sg.Text(desc, size=(100, 10))],
+                [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]
+            ]
+            new_window = sg.Window(title, layout, finalize=True)
+            canvas_elem = new_window['-CANVAS-']
+            canvas = canvas_elem.TKCanvas
+            toolbar_canvas_elem = new_window['-TOOLBAR-']
+            toolbar_canvas = toolbar_canvas_elem.TKCanvas
 
-        draw_figure_w_toolbar(canvas,figure,toolbar_canvas)
+            draw_figure_w_toolbar(canvas,figure,toolbar_canvas)
+        else:
+            layout = [
+                [sg.Canvas(key='-TOOLBAR-')],
+                [sg.Column(
+                    layout=[
+                        [sg.Canvas(key='-CANVAS-',
+                                   # it's important that you set this size
+                                   size=(640, 600)
+                                   )]
+                    ],
+                    pad=(0, 0)
+                )],
+                [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]
+            ]
+            new_window = sg.Window(title, layout, finalize=True)
+            canvas_elem = new_window['-CANVAS-']
+            canvas = canvas_elem.TKCanvas
+            toolbar_canvas_elem = new_window['-TOOLBAR-']
+            toolbar_canvas = toolbar_canvas_elem.TKCanvas
+
+            draw_figure_w_toolbar(canvas,figure,toolbar_canvas)
 
     else:
-        layout = [[sg.Canvas(size=(640, 480), key='-CANVAS-')],
-                  [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+        if desc is not None:
+            layout = [[sg.Canvas(size=(640, 480), key='-CANVAS-')],
+                      [sg.Text(desc, size=(100, 10))],
+                      [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
 
-        new_window = sg.Window(title, layout, finalize=True)
+            new_window = sg.Window(title, layout, finalize=True)
 
-        canvas_elem = new_window['-CANVAS-']
-        canvas = canvas_elem.TKCanvas
-        draw_figure(canvas,figure)
+            canvas_elem = new_window['-CANVAS-']
+            canvas = canvas_elem.TKCanvas
+            draw_figure(canvas,figure)
+        else:
+            layout = [[sg.Canvas(size=(640, 480), key='-CANVAS-')],
+                      [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]]
+
+            new_window = sg.Window(title, layout, finalize=True)
+
+            canvas_elem = new_window['-CANVAS-']
+            canvas = canvas_elem.TKCanvas
+            draw_figure(canvas,figure)
     return new_window, window
 
-def show_vis_list(listbox_values,window,title=''):
+def show_vis_list(listbox_values,window,desc=None,title=''):
     window.close()
     figure_w, figure_h = 640, 480
 
-    col_listbox = [[sg.Listbox(values=listbox_values, change_submits=True, size=(28, 30), key='-LISTBOX-')],
+    if desc is not None:
+        col_listbox = [[sg.Listbox(values=listbox_values, change_submits=True, size=(28, 30), key='-LISTBOX-')],
+               [sg.Button('Back', size=(10, 2), font='Helvetica 14')]]
+    else:
+        col_listbox = [[sg.Listbox(values=listbox_values, change_submits=True, size=(28, 30), key='-LISTBOX-')],
                [sg.Button('Back', size=(10, 2), font='Helvetica 14')]]
 
     col_multiline = sg.Col([[sg.MLine(size=(70, 35), key='-MULTILINE-')]])
     col_canvas = sg.Col([[sg.Canvas(size=(figure_w, figure_h), key='-CANVAS-')]])
-    col_instructions = sg.Col([[sg.Pane([col_canvas, col_multiline], size=(650, 425))]])
+    col_instructions = sg.Col([[sg.Pane([col_canvas, col_multiline], size=(650, 425))],[sg.Text(desc, size=(100, 10))]])
 
     layout = [[sg.Text('Interactions List', font=('ANY 18'))],
           [sg.Col(col_listbox), col_instructions]]
@@ -177,10 +215,13 @@ def main():
             #show vis3 func call
             continue
         elif event == 'vis4':
-            #show vis3 func call
+            #show vis4 func call
             continue
         elif event == 'vis5':
-            #show vis3 func call
+            #show vis5 func call
+            continue
+        elif event == 'vis6':
+            #show vis6 func call
             continue
 
     window.close()
