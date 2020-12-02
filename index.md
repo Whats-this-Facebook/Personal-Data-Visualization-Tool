@@ -10,7 +10,7 @@
 2. Select the folder in the tool's folder selection menu.
 
 ## How do I install my Facebook data?
-To download a copy of your Facebook data, follow the instructions [here](https://www.facebook.com/help/212802592074644)
+To download a copy of your Facebook data, follow the instructions [here](https://www.facebook.com/help/212802592074644).
 
 ## How do I know that my data is safe?
 The *"What's this, Facebook!?"* tool is a completely local application that doesn't connect to the internet in any way, shape, or form. This means that all your private data stays put on your computer! If you want to confirm this for yourself, check out our [source code](https://github.com/Whats-this-Facebook/Personal-Data-Visualization-Tool). 
