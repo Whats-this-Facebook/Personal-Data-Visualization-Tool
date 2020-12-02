@@ -18,7 +18,7 @@ Click *OK*.
 5. You should see a button towards the lower right of the screen that says *Open Anyway*.  
 Click this button.
 ![open anyway button](imgs/open_anyway.png)
-6. Navigate back to the file you unzipped.  
+6. Navigate back to the folder you unzipped.  
 This time, click on the *main* file.  
 You should see another security warning.  
 Click *Cancel* this time.
