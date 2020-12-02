@@ -8,7 +8,11 @@ layout: default
 After doing this, you should have a folder that contains two files.  
 ![two files picture](imgs/two_files.png)
 2. Double click the *start.command* file. You should see a security warning.  
-![start command file warning](start_command_warning.png)
+![start command file warning](imgs/start_command_warning.png)  
+3. Navigate to your *System Preferences*.  
+![navigate to system preferences](imgs/system_preferences_nav.png)
+4. Navigate to your *Security and Privacy* settings.  
+![navigate to security settings](imgs/system_preferences_nav.png)
 
 
 More instructions coming soon...
