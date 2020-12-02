@@ -31,7 +31,7 @@ Make sure that the *main* file is in the same directory when you do this.
 1. Set up a Python environment with Python 3.7 - 3.9.
 2. Download the source code for *"What's this, Facebook!?"* with a git clone.
 3. Install the libraries *PySimpleGUI, matplotlib, pandas, descartes, geopandas,* and *cities_coordinates* into your environment.  
-This can be down via pip, as shown below.
+This can be done via pip, as shown below.
 
 ```
 pip3 install PySimpleGUI
