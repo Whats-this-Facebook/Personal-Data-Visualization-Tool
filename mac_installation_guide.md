@@ -4,8 +4,9 @@ layout: default
 [<- Back to main site.](https://whats-this-facebook.github.io/Personal-Data-Visualization-Tool/)
 
 ## How do I run the application downloaded via the zip file above?
-Once you have installed the zip file, be sure to unzip(decompress) it.  
+1. Once you have installed the zip file, be sure to unzip(decompress) it.  
 After doing this, you should have a folder that contains two files.  
+
 More instructions coming soon...
 
 

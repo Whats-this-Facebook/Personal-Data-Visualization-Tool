@@ -7,9 +7,9 @@
 
 ## How do I use it?
 1. Download a copy of your facebook data in *json* format.
-2. Select the folder in the tool's folder selection menu.
+2. Select the folder you downloaded in the tool's folder selection menu.
 
-## How do I install my Facebook data?
+## How do I download my Facebook data?
 To download a copy of your Facebook data, follow the instructions [here](https://www.facebook.com/help/212802592074644).
 
 ## How do I know that my data is safe?
