@@ -9,19 +9,19 @@ After doing this, you should have a folder that contains two files.
 ![two files picture](imgs/two_files.png)
 2. Double click the *start.command* file.  
 You should see a security warning.  
-Click *OK*.
+Click *OK*.  
 ![start command file warning](imgs/start_command_warning.png)  
 3. Navigate to your *System Preferences*.  
 ![navigate to system preferences](imgs/system_preferences_nav.png)
 4. Navigate to your *Security and Privacy* settings.  
 ![navigate to security settings](imgs/security_nav.png)
 5. You should see a button towards the lower right of the screen that says *Open Anyway*.  
-Click this button.
+Click this button.  
 ![open anyway button](imgs/open_anyway.png)
 6. Navigate back to the folder you unzipped.  
 This time, click on the *main* file.  
 You should see another security warning.  
-Click *Cancel* this time.
+Click *Cancel* this time.  
 ![main file warning](imgs/main_warning.png)  
 7. Repeat steps 3 thru 5.  
 8. You should now be able to start the application by clicking on the *start.command* file.  
