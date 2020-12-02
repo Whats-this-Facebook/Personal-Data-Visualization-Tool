@@ -6,7 +6,7 @@ layout: default
 ## How do I run the application downloaded via the zip file above?
 1. Once you have installed the zip file, be sure to unzip(decompress) it.  
 After doing this, you should have a folder that contains two files.  
-![two files picture](./two_files)
+![two files picture](_imgs/two_files)
 
 More instructions coming soon...
 
