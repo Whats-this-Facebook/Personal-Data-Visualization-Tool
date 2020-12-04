@@ -19,19 +19,29 @@ def frontloader(data, my_facebook_path):
     print("Entering frontloader")
     comments = data.comments()
     comments_string = readFolder.comments_str(comments)
+
     print("generating visualization 1")
     figure_dict["vis1"] = wordCounter.freqWords2Barchart(comments_string)
+    
     print("generating visualization 2")
     figure_dict["vis2"] = appsUsed.plotApps(my_facebook_path)
+
     print("generating visualization 3")
     figure_dict["vis3"] = dataQuantity.plotDataQuantity("", data.folder)
+
     print("generating visualization 4")
     figure_dict["vis4"] = offFBActivity.get_offFBActivity_Data_Dictionary(data)
+
     print("generating visualization 5")
     figure_dict["vis5"] = accountActivityLocations.plotLocations(my_facebook_path)
+
     print("generating visualization 6")
     figure_dict["vis6"] = usage_timeline.plot(data)
-    
+
+    print("generating complete")
+
+
+
 def description_dict(my_facebook_path):
     d = {}
     d["vis1"] = ("The above figure shows the frequency of each of your most written words on Facebook.\n" 
@@ -138,7 +148,10 @@ def main():
             activityList = data.offFB_activities_list()
             desc = desc_dict["vis4"]
             vis_window, window = gui.show_vis_list(activityList, window, desc)
-            figure_agg = None
+
+            figure = offFBActivity.placeHolderMsg()
+            figure_agg = offFBActivity.draw_figure(
+                    vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
 
             while True:
                 vis_event, vis_values = vis_window.read()

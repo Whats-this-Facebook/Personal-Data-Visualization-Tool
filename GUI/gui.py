@@ -160,9 +160,8 @@ def show_vis_list(listbox_values,window,desc=None,title=''):
         col_listbox = [[sg.Listbox(values=listbox_values, change_submits=True, size=(28, 30), key='-LISTBOX-')],
                [sg.Button('Back', size=(10, 2), font='Helvetica 14')]]
 
-    col_multiline = sg.Col([[sg.MLine(size=(70, 35), key='-MULTILINE-')]])
     col_canvas = sg.Col([[sg.Canvas(size=(figure_w, figure_h), key='-CANVAS-')]])
-    col_instructions = sg.Col([[sg.Pane([col_canvas, col_multiline], size=(650, 425))],[sg.Text(desc, size=(100, 10))]])
+    col_instructions = sg.Col([[sg.Pane([col_canvas], size=(650, 425))],[sg.Text(desc, size=(100, 10))]])
 
     layout = [[sg.Text('Interactions List', font=('ANY 18'))],
           [sg.Col(col_listbox), col_instructions]]
