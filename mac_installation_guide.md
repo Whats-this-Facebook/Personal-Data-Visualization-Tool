@@ -37,7 +37,9 @@ Click *Cancel* this time.
 
 9. You should now be able to start the application by clicking on the *start.command* file.  
 Make sure that the *main* file is in the same directory when you do this.  
+![tool screen](imgs/tool_screen.png)
   
+<br/>
 ## How do I build using the source code?  (relevant to developers only)
 1. Set up a Python environment with Python 3.7 - 3.9.
 2. Download the source code for *"What's this, Facebook!?"* with a git clone.
