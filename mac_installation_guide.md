@@ -14,17 +14,19 @@ Click *OK*.
 3. Navigate to your *System Preferences*.  
 ![navigate to system preferences](imgs/system_preferences_nav.png)
 4. Navigate to your *Security and Privacy* settings.  
+![navigate to system preferences](imgs/security_general.png)
+5. Select the *General* option at the top of the window.  
 ![navigate to security settings](imgs/security_nav.png)
-5. You should see a button towards the lower right of the screen that says *Open Anyway*.  
+6. You should see a button towards the lower right of the screen that says *Open Anyway*.  
 Click this button.  
 ![open anyway button](imgs/open_anyway.png)
-6. Navigate back to the folder you unzipped.  
+7. Navigate back to the folder you unzipped.  
 This time, click on the *main* file.  
 You should see another security warning.  
 Click *Cancel* this time.  
 ![main file warning](imgs/main_warning.png)  
-7. Repeat steps 3 thru 5.  
-8. You should now be able to start the application by clicking on the *start.command* file.  
+8. Repeat steps 3 thru 5.  
+9. You should now be able to start the application by clicking on the *start.command* file.  
 Make sure that the *main* file is in the same directory when you do this.  
   
 ## How do I build using the source code?  (relevant to developers only)
