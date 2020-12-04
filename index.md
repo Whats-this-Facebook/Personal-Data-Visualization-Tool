@@ -1,5 +1,6 @@
 ## What is this tool?
 *"What's this, Facebook!?"* is a tool that you can use on your [Facebook data](https://www.facebook.com/help/1701730696756992?cms_id=131112897028467) to produce graphs and other visuals that help you understand what kind of information Facebook has on you.
+
 <br/>
 ## How do I install and run the tool?
 [Installation guide for mac 📚](./mac_installation_guide.md) 
