@@ -65,7 +65,7 @@ def comments_str(comments):
                 comments_str = comments_str + " " + str
     return comments_str
   
-def messages_str(messages):
+def messages_str(messages, name):
     """Pick the content from messages and combine all of them into one string.
 
     Args:
@@ -78,7 +78,8 @@ def messages_str(messages):
     for message in messages:
       for i in message['messages']:
         try:
-          message_str += ' ' + i['content']
+          if i['sender_name'] == name and i['type'] == 'Generic':
+            message_str += ' ' + i['content']
         except:
           continue
     
