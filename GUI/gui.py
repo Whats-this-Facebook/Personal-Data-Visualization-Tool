@@ -47,9 +47,9 @@ def set_window(title=''):
 
     # define layout, show and read the window
     layout = [[sg.Menu(menu)], [sg.Col(buttons)]]
-    window = sg.Window('Visualization Browser', layout,
+    window = sg.Window('Visualization Browser', layout, 
             return_keyboard_events=True,
-            use_default_focus=False)
+            use_default_focus=False).Finalize()
     return window
 
 def draw_figure(canvas, figure):

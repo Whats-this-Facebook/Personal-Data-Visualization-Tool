@@ -17,9 +17,13 @@ figure_dict = {}
 def frontloader(data, my_facebook_path):
     print("Entering frontloader")
     comments = data.comments()
+    messages = data.messages()
+    posts    = data.posts()
     comments_string = readFolder.comments_str(comments)
+    messages_string = readFolder.messages_str(messages)
+    posts_string    = readFolder.posts_str(posts)
     print("generating visualization 1")
-    figure_dict["vis1"] = wordCounter.freqWords2Barchart(comments_string)
+    figure_dict["vis1"] = wordCounter.freqWords2Barchart(comments_string + messages_string + posts_string)
     print("generating visualization 2")
     figure_dict["vis2"] = appsUsed.plotApps(my_facebook_path)
     print("generating visualization 3")
@@ -40,6 +44,7 @@ def description_dict(my_facebook_path):
         + my_facebook_path + "/messages/inbox")
 
     d["vis2"] = ("The above figure shows a timeline of every app and website you have used that Facebook knows about.\n"
+        + "Use the toolbar's maginfiying glass on the top left to zoom in to areas on the timeline that have overlapping apps.\n"
         + "The data used for this visualization can be found in:\n"
         + my_facebook_path + "/apps_and_websites/apps_and_websites.json")
 

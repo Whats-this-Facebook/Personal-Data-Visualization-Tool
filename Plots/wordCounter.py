@@ -27,7 +27,8 @@ def mostFreq(data_set,n):
              "again", "further", "then", "once", "here", "there", "when", "where", "why",
               "how", "all", "any", "both", "each", "few", "more", "most", "other", "some",
                "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too",
-                "very", "s", "t", "can", "will", "just", "don", "should", "now"}
+                "very", "s", "t", "can", "will", "just", "don", "should", "now", "im",
+                "ok","okay", "gonna"}
 
     if data_set is None:
         return None

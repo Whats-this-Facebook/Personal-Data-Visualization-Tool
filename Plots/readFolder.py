@@ -64,45 +64,6 @@ def comments_str(comments):
                 str = data["comment"]["comment"]
                 comments_str = comments_str + " " + str
     return comments_str
-  
-def messages_str(messages):
-    """Pick the content from messages and combine all of them into one string.
-
-    Args:
-      An array of messages. All the info are in dictioanry format.
-
-    Returns:
-      A string.
-    """
-    message_str = ''
-    for message in messages:
-      for i in message['messages']:
-        try:
-          message_str += ' ' + i['content']
-        except:
-          continue
-    
-    return message_str
-
-def posts_str(posts):
-    """Pick the content from posts and combine all of them into one string.
-
-    Args:
-      An array of posts. All the info are in dictioanry format.
-
-    Returns:
-      A string.
-    """
-    posts_str = ''
-    for p in posts:
-        for post in p:
-          try:
-            posts_str += ' ' + post['data'][0]['post']
-          except:
-            continue
-    
-    return posts_str 
-
 
 class Facebook:
     """A Facebook instance provides data including comments, apps.
