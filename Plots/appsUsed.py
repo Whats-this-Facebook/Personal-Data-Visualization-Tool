@@ -86,7 +86,7 @@ def plotTimeline(names, dates, timeline_name=''):
                                              #linefmt="#3B5998", basefmt="k-",
                                              #use_line_collection=True)
     
-    ax.hlines(dates, 0, levels, color="tab:blue",linestyles='dotted')  # The vertical stems.
+    ax.hlines(dates, 0, levels, color="tab:blue",linestyles='solid')  # The vertical stems.
     ax.plot(np.zeros_like(dates), dates, "-o",
         color="k", markerfacecolor="w")  # Baseline and markers on it.    
 
