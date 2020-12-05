@@ -78,7 +78,7 @@ class Toolbar(NavigationToolbar2Tk):
     def __init__(self, *args, **kwargs):
         super(Toolbar, self).__init__(*args, **kwargs)
 
-def show_vis(figure,window,desc=None,title='',toolbar=False):
+def show_vis(figure,window,desc=None,title='',toolbar=False,scrollable=False):
     if figure is None:
         return
     window.close()
@@ -93,8 +93,8 @@ def show_vis(figure,window,desc=None,title='',toolbar=False):
                                    size=(640, 600)
                                    )]
                     ],
-                    pad=(0, 0)
-                )],
+                    pad=(0, 0),
+                scrollable=scrollable, size=(600,500))],
                 [sg.Text(desc, size=(100, 10))],
                 [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]
             ]

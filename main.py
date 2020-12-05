@@ -124,7 +124,7 @@ def main():
         elif event == 'vis2':
             figure = figure_dict["vis2"]
             desc = desc_dict["vis2"]
-            vis_window, window = gui.show_vis(figure,window,desc,toolbar=True)
+            vis_window, window = gui.show_vis(figure,window,desc,toolbar=True,scrollable=True)
             
 
             while True:
