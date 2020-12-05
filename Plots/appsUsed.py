@@ -14,7 +14,7 @@ def findRepeatDates(dates,names):
         if abs(int((dates[i-1] - date).days)) <= 31:
             newNames[-1] += ' | ' + names[i]
             cnt += len(names[i])
-            if cnt > 140:
+            if cnt > 100:
                 newNames[-1] += '\n'
                 cnt = 0
         else:
@@ -79,7 +79,7 @@ def plotTimeline(names, dates, timeline_name=''):
     else:
         height = 55
     '''
-    fig, ax = plt.subplots(figsize=(12,6))
+    fig, ax = plt.subplots(figsize=(10,20))
     ax.set(title="Apps that facebook knows you've used")
 
     #markerline, stemline, baseline = ax.stem(dates, levels,

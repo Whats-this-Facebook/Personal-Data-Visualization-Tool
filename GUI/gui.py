@@ -82,6 +82,7 @@ def show_vis(figure,window,desc=None,title='',toolbar=False,scrollable=False):
     if figure is None:
         return
     window.close()
+    width = 1000 if scrollable else 600
     if toolbar:
         if desc is not None:
             layout = [
@@ -94,7 +95,7 @@ def show_vis(figure,window,desc=None,title='',toolbar=False,scrollable=False):
                                    )]
                     ],
                     pad=(0, 0),
-                scrollable=scrollable, size=(600,500))],
+                scrollable=scrollable, size=(width,500))],
                 [sg.Text(desc, size=(100, 10))],
                 [sg.Button('Back', size=(10, 2), pad=((280, 0), 3), font='Helvetica 14')]
             ]

@@ -24,7 +24,6 @@ def frontloader(data, my_facebook_path):
     comments_string = readFolder.comments_str(comments)
     messages_string = readFolder.messages_str(messages, name)
     posts_string    = readFolder.posts_str(posts)
-    print(messages_string)
     print("generating visualization 1")
     figure_dict["vis1"] = wordCounter.freqWords2Barchart(comments_string + messages_string + posts_string)
     print("generating visualization 2")
