@@ -179,9 +179,7 @@ def make_figure(axesList, figure_data):
     for ax, event in zip(axesList, figure_data.keys()):
         dates = figure_data[event]["dates"]
         count = figure_data[event]["count"]
-        #print(dates)
-        #print(count)
-        ax.bar(dates,count)
+        ax.bar(x=dates,height=count,width=0.5)
         ax.yaxis.get_major_locator().set_params(integer=True)
         ax.set_ylim(ymin=0, ymax=None)
         ax.set_title(event)
@@ -205,6 +203,12 @@ def get_figure(figure_data):
 
     make_figure(axesList, figure_data)
 
+    return fig
+
+
+def placeHolderMsg():
+    fig = plt.figure()
+    fig.text(0.50, 0.50,'Click an interaction in your list to see what\nFacebook knows about your offline activities.',horizontalalignment='center',verticalalignment='center',fontsize=15)
     return fig
 
 

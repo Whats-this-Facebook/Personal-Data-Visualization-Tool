@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import GUI.gui as gui
 import Plots.wordCounter as wordCounter
 import Plots.dataQuantity as dataQuantity
@@ -26,44 +27,52 @@ def frontloader(data, my_facebook_path):
     figure_dict["vis1"] = wordCounter.freqWords2Barchart(comments_string + messages_string + posts_string)
     print("generating visualization 2")
     figure_dict["vis2"] = appsUsed.plotApps(my_facebook_path)
+
     print("generating visualization 3")
     figure_dict["vis3"] = dataQuantity.plotDataQuantity("", data.folder)
+
     print("generating visualization 4")
     figure_dict["vis4"] = offFBActivity.get_offFBActivity_Data_Dictionary(data)
+
     print("generating visualization 5")
     figure_dict["vis5"] = accountActivityLocations.plotLocations(my_facebook_path)
+
     print("generating visualization 6")
     figure_dict["vis6"] = usage_timeline.plot(data)
-    
+
+    print("generating complete")
+
+
+
 def description_dict(my_facebook_path):
     d = {}
     d["vis1"] = ("The above figure shows the frequency of each of your most written words on Facebook.\n" 
         + "The data used for this visualization can be found in:\n"
-        + my_facebook_path + "/comments/comments.json\n"
-        + my_facebook_path + "/posts/your_posts_1.json\n"
-        + my_facebook_path + "/messages/inbox")
+        + os.path.join(os.path.join(my_facebook_path, "comments"),"comments.json") + "\n"
+        + os.path.join(os.path.join(my_facebook_path, "posts"),"your_posts_1.json") + "\n"
+        + os.path.join(os.path.join(my_facebook_path, "messages"),"inbox"))
 
     d["vis2"] = ("The above figure shows a timeline of every app and website you have used that Facebook knows about.\n"
         + "Use the toolbar's maginfiying glass on the top left to zoom in to areas on the timeline that have overlapping apps.\n"
         + "The data used for this visualization can be found in:\n"
-        + my_facebook_path + "/apps_and_websites/apps_and_websites.json")
+        + os.path.join(os.path.join(my_facebook_path, "apps_and_websites"),"apps_and_websites.json"))
 
     d["vis3"] = "The above figure shows the quantity of data per category in your Facebook folder" 
     
     d["vis4"] = ("The above figure shows your off-Facebook activity that Facebook knows about.\n"
         + "The data used for this visualization can be found in:\n"
-        + my_facebook_path + "/ads_and_businesses/your_off-facebook_activity.json")
+        + os.path.join(os.path.join(my_facebook_path, "ads_and_businesses"),"your_off-facebook_activity.json"))
 
     d["vis5"] = ("The above figure shows a map of every location Facebook has tracked you\n"
         + "The data used for this visualization can be found in:\n"
-        + my_facebook_path + "/security_and_login_information/account_activity.json")
+        + os.path.join(os.path.join(my_facebook_path, "security_and_login_information"),"account_activity.json"))
 
     d["vis6"] = ("The above figure shows a timeline of your sent messages, posts, and comments over time.\n"
         + "The data used for this visualization can be found in:\n"
-        + my_facebook_path + "/messages/inbox\n"
-        + my_facebook_path + "/profile_information/profile_information.json\n"
-        + my_facebook_path + "/comments/comments.json\n"
-        + my_facebook_path + "/posts/your_posts_1.json")
+        + os.path.join(os.path.join(my_facebook_path, "messages"),"inbox") + "\n"
+        + os.path.join(os.path.join(my_facebook_path, "profile_information"),"profile_information.json") + "\n"
+        + os.path.join(os.path.join(my_facebook_path, "comments"),"comments.json") + "\n"
+        + os.path.join(os.path.join(my_facebook_path, "posts"),"your_posts_1.json"))
     return d
 
 def main():
@@ -142,7 +151,10 @@ def main():
             activityList = data.offFB_activities_list()
             desc = desc_dict["vis4"]
             vis_window, window = gui.show_vis_list(activityList, window, desc)
-            figure_agg = None
+
+            figure = offFBActivity.placeHolderMsg()
+            figure_agg = offFBActivity.draw_figure(
+                    vis_window['-CANVAS-'].TKCanvas, figure)  # draw the figure
 
             while True:
                 vis_event, vis_values = vis_window.read()
