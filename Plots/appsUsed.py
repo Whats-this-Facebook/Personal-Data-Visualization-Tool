@@ -14,7 +14,7 @@ def findRepeatDates(dates,names):
         if abs(int((dates[i-1] - date).days)) <= 31:
             newNames[-1] += ' | ' + names[i]
             cnt += len(names[i])
-            if cnt > 50:
+            if cnt > 140:
                 newNames[-1] += '\n'
                 cnt = 0
         else:
@@ -56,13 +56,13 @@ def plotTimeline(names, dates, timeline_name=''):
     #https://matplotlib.org/3.2.1/gallery/lines_bars_and_markers/timeline.html
     # Choose some nice levels
     if len(names) > 29:
-        fontSize = 5
+        fontSize = 7
     elif len(names) > 24:
-        fontSize = 8 
+        fontSize = 7 
     elif len(names) > 19:
-        fontSize = 9
+        fontSize = 7
     else:
-        fontSize = 10 
+        fontSize = 7
     vertResolution = [2,2,2,2,2,2]
     levels = np.tile(vertResolution,
                      int(np.ceil(len(dates)/6)))[:len(dates)]
@@ -79,7 +79,7 @@ def plotTimeline(names, dates, timeline_name=''):
     else:
         height = 55
     '''
-    fig, ax = plt.subplots(figsize=(10,10 ))
+    fig, ax = plt.subplots(figsize=(12,6))
     ax.set(title="Apps that facebook knows you've used")
 
     #markerline, stemline, baseline = ax.stem(dates, levels,
@@ -113,6 +113,7 @@ def plotTimeline(names, dates, timeline_name=''):
         ax.spines[spine].set_visible(False)
 
     ax.margins(y=0.1)
+    #ax.set_adjustable('datalim')
     plt.tight_layout()
     if timeline_name == '':
         return fig
