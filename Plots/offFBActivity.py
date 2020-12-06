@@ -199,9 +199,8 @@ def get_figure(figure_data):
         axesList.append(axes)
         make_fig = True
     elif num_unique_events == 1 and not check:
-        print("skip")
+        pass
     else:
-        print(num_unique_events)
         axesList = list(axes)
         make_fig = True
 
@@ -225,7 +224,6 @@ def dictionary_length_check(data):
     else:
         for event in key_len:
             if len(data[event]["dates"]) > 1:
-                print(len(data[event]))
                 check = True
     
     return check
@@ -244,7 +242,6 @@ def offFB_activity_msg(data):
         #dates = str(data[event]["dates"])
         dates = str(data[event]["dates"][0].strftime("%d-%b-%Y"))
         count = str(data[event]["count"][0])
-        print("Event: " + event)
         msg = str("Event: " + event + "\n" + "Date: " + dates + "\n" + "Events tracked that day: " + count)
         fig.text(0.50, 0.50, msg, horizontalalignment='center', verticalalignment='center', fontsize=15)
     return fig
