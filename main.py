@@ -11,6 +11,7 @@ import PySimpleGUI as sg
 import Plots.offFBActivity as offFBActivity
 import Plots.accountActivityLocations as accountActivityLocations
 import Plots.usage_timeline as usage_timeline
+import os.path
 
 my_facebook_path = ""
 figure_dict = {}

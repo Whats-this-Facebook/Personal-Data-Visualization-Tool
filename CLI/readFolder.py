@@ -119,7 +119,7 @@ class Facebook:
         self.folder = folder
 
     def profile(self):
-        path = str(self.folder + "/profile_information/profile_information.json")
+        path = os.path.join(self.folder, "profile_information", "profile_information.json")
         try:
             with open(path) as f:
               d = json.load(f)
@@ -129,7 +129,7 @@ class Facebook:
             return []
 
     def comments(self):
-        path = str(self.folder + "/comments/comments.json")
+        path = os.path.join(self.folder, "comments", "comments.json")
         try:
             with open(path) as f:
               d = json.load(f)
@@ -139,7 +139,7 @@ class Facebook:
             return []
 
     def messages(self):
-        path = str(self.folder + "/messages/inbox/")
+        path = os.path.join(self.folder, "messages", "inbox")
         messages = []
         try:
             folders = os.scandir(path)
@@ -154,7 +154,7 @@ class Facebook:
         return messages
 
     def posts(self):
-        path = str(self.folder + "/posts/")
+        path = os.path.join(self.folder, "posts")
         posts = []
         try:
             folders = os.scandir(path)
@@ -166,7 +166,7 @@ class Facebook:
         return posts
 
     def apps(self):
-        path = str(self.folder + "/apps_and_websites/apps_and_websites.json")
+        path = os.path.join(self.folder, "apps_and_websites", "apps_and_websites.json")
         try:
             with open(path) as f:
               d = json.load(f)
@@ -176,7 +176,7 @@ class Facebook:
             return[]
 
     def offFB_activities(self):
-        path = str(self.folder + "/ads_and_businesses/your_off-facebook_activity.json")
+        path = os.path.join(self.folder, "ads_and_businesses", "your_off-facebook_activity.json")
         try:
             with open(path) as f:
               d = json.load(f)
@@ -194,7 +194,7 @@ class Facebook:
         return activityList
 
     def account_activity(self):
-        path = str(self.folder + "/security_and_login_information/account_activity.json")
+        path = os.path.join(self.folder, "security_and_login_information", "account_activity.json")
         try:
             with open(path) as f:
               d = json.load(f)
