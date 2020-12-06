@@ -188,27 +188,62 @@ def make_figure(axesList, figure_data):
 
 def get_figure(figure_data):
     num_unique_events = len(figure_data)
-
+    make_fig = False
     # Create subplots
     fig, axes = plt.subplots(num_unique_events, 1, sharex=True)
 
+    check = dictionary_length_check(figure_data)
     axesList = []
-    if num_unique_events == 1:
+    #adding a single element to a list
+    if num_unique_events == 1 and check:
         axesList.append(axes)
+        make_fig = True
+    elif num_unique_events == 1 and not check:
+        pass
     else:
         axesList = list(axes)
+        make_fig = True
 
     fig.tight_layout(h_pad=2)
     plt.subplots_adjust(top=0.9,left=0.15,bottom=0.2,right=0.9)
 
-    make_figure(axesList, figure_data)
+    if make_fig:
+        make_figure(axesList, figure_data)
+    else:
+        fig = offFB_activity_msg(figure_data)
 
     return fig
+
+
+def dictionary_length_check(data):
+    #checks if there is more than 1 entry in the dictionary
+    check = False
+    key_len = data.keys()
+    if len(key_len) > 1:
+        check = True
+    else:
+        for event in key_len:
+            if len(data[event]["dates"]) > 1:
+                check = True
+    
+    return check
+
 
 
 def placeHolderMsg():
     fig = plt.figure()
     fig.text(0.50, 0.50,'Click an interaction in your list to see what\nFacebook knows about your offline activities.',horizontalalignment='center',verticalalignment='center',fontsize=15)
+    return fig
+
+
+def offFB_activity_msg(data):
+    fig = plt.figure()
+    for event in data.keys():
+        #dates = str(data[event]["dates"])
+        dates = str(data[event]["dates"][0].strftime("%d-%b-%Y"))
+        count = str(data[event]["count"][0])
+        msg = str("Event: " + event + "\n" + "Date: " + dates + "\n" + "Events tracked that day: " + count)
+        fig.text(0.50, 0.50, msg, horizontalalignment='center', verticalalignment='center', fontsize=15)
     return fig
 
 
